@@ -1,0 +1,43 @@
+# ===== Secrets =====
+.env
+*.key
+credentials*.json
+token*.json
+
+# ===== Data =====
+# Data mentah & hasil olahan tidak di-commit (simpan di Google Drive tim).
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+# File besar di data/external juga jangan di-commit
+data/external/*.zip
+data/external/*.shp
+data/external/*.dbf
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+
+# ===== Jupyter =====
+.ipynb_checkpoints/
+
+# ===== KNIME =====
+# Commit workflow hasil export (.knwf), bukan workspace-nya
+.metadata/
+knime-workspace/
+*.knime-tmp
+
+# ===== OS / Editor =====
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# ===== Office temp files =====
+~$*

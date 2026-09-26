@@ -1,0 +1,15 @@
+# Core
+pandas
+numpy
+python-dotenv
+requests
+
+# EDA & visualisasi
+jupyter
+matplotlib
+seaborn
+
+# Data spasial (GeoJSON batas kelurahan, issue #7)
+geopandas
+
+# Library scraping ditambahkan setelah platform ditentukan (issue #6)

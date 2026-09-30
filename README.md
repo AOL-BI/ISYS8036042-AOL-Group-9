@@ -14,7 +14,7 @@ Proyek ini membangun **model prediktif** dari keluhan masyarakat soal infrastruk
 |------|-----|-------|
 | Muhammad Rasyid Ismail | 2802939676 | _TBD_ |
 | Angelina Oktaviani Putri | 2802939650 | _TBD_ |
-| Alifah Olinda Fiorinda | 2802939650 | _TBD_ |
+| Alifah Olinda Fiorinda | 2802939650 | data acquisation |
 
 ## 🎯 Scope (draft)
 

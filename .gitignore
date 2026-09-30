@@ -14,6 +14,14 @@ data/processed/*
 data/external/*.zip
 data/external/*.shp
 data/external/*.dbf
+# File geometri besar (GeoJSON/TopoJSON/shapefile) di-download ulang, lihat data/external/README.md
+data/external/**/*.zip
+data/external/**/*.geojson
+data/external/**/*.topojson
+data/external/**/*.shp
+data/external/**/*.shx
+data/external/**/*.dbf
+data/external/**/*.prj
 
 # ===== Python =====
 __pycache__/

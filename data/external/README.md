@@ -1,39 +1,69 @@
 # Data External
 
 Data pendukung dari sumber resmi/publik (bukan hasil scraping).
-File geometri berukuran besar **tidak di-commit**. Ikuti langkah di bawah untuk download ulang.
+Arsip mentah berukuran besar **tidak di-commit**. Ikuti langkah di bawah untuk download ulang.
 
-## 1. geoBoundaries: Indonesia ADM2 (Kabupaten/Kota)
+## 1. Batas Wilayah DKI Jakarta (ADM2–ADM4)
 
 | | |
 |---|---|
-| **Folder** | `geoboundaries/` |
-| **Level** | ADM2 = kabupaten/kota (519 unit), **bukan kelurahan** |
-| **Tahun batas** | 2020 (source updated Jan 2023) |
-| **Sumber asli** | BPS, WFP, OCHA ROAP via [HDX](https://data.humdata.org/dataset/indonesia-administrative-boundary-polygons-lines-and-places-levels-0-4b) |
-| **Download** | https://www.geoboundaries.org → Indonesia → ADM2 → `geoBoundaries-IDN-ADM2-all.zip` |
-| **Lisensi** | CC BY 3.0 IGO |
+| **Folder** | `batas-wilayah/` |
+| **Level** | ADM2 = kota/kabupaten · ADM3 = kecamatan · ADM4 = kelurahan |
+| **Tahun batas** | `valid_on` 2020-04-01 |
+| **Sumber** | BPS via [HDX: Indonesia Subnational Administrative Boundaries (COD-AB)](https://data.humdata.org/dataset/indonesia-administrative-boundary-polygons-lines-and-places-levels-0-4b) |
+| **Download** | `idn_admin_boundaries.geojson.zip` (456 MB) dari halaman HDX di atas |
+| **CRS** | WGS84 (EPSG:4326) |
+| **Lisensi** | CC BY-IGO |
 | **Issue** | [#7](../../../../issues/7) |
 
 **Isi folder:**
 
 ```
-geoboundaries/
-├── geoBoundaries-IDN-ADM2-all.zip         # arsip asli (95 MB, tidak di-commit)
-└── IDN-ADM2/
-    ├── geoBoundaries-IDN-ADM2_simplified.geojson   # 11 MB, dipakai untuk peta/EDA (tidak di-commit)
-    ├── geoBoundaries-IDN-ADM2-metaData.json/.txt
-    ├── geoBoundaries-IDN-ADM2-PREVIEW.png
-    └── CITATION-AND-USE-geoBoundaries.txt
+batas-wilayah/
+├── idn_admin_boundaries.geojson.zip   # arsip asli ADM0–ADM4 se-Indonesia (456 MB, tidak di-commit)
+├── jakarta_adm2.geojson               # 6 kota/kabupaten (0.4 MB)
+├── jakarta_adm3.geojson               # 46 kecamatan (0.8 MB)
+├── jakarta_adm4.geojson               # 270 kelurahan (1.7 MB), unit analisis utama
+├── jakarta_kelurahan.csv              # atribut kelurahan tanpa geometri, buat join ke data BPS
+└── jakarta_adm4_preview.png
 ```
 
-Versi full-resolution (`.geojson` 159 MB, `.shp`, `.topojson`) ada di dalam zip. Extract kalau butuh presisi tinggi.
+**Cara generate ulang:** taruh zip di folder ini, lalu jalankan dari root repo:
 
-**Kolom atribut:** `shapeName` (nama kab/kota), `shapeID`, `shapeGroup` (`IDN`), `shapeType` (`ADM2`)
+```bash
+python src/preprocessing/extract_jakarta_boundaries.py
+```
 
-**Sitasi wajib (untuk laporan):**
-> Runfola, D. et al. (2020). geoBoundaries: A global database of political administrative boundaries. *PLoS ONE* 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
+**Jumlah wilayah per kota/kabupaten:**
 
-## 2. Batas Kelurahan (ADM4): _TBD_
+| adm2_pcode | Kota/Kabupaten | Kecamatan | Kelurahan |
+|---|---|---|---|
+| ID3171 | Kota Jakarta Selatan | 10 | 65 |
+| ID3172 | Kota Jakarta Timur | 10 | 65 |
+| ID3173 | Kota Jakarta Pusat | 8 | 44 |
+| ID3174 | Kota Jakarta Barat | 8 | 57 |
+| ID3175 | Kota Jakarta Utara | 8 | 33 |
+| ID3101 | Kepulauan Seribu | 2 | 6 |
+| | **Total** | **46** | **270** |
 
-## 3. Populasi per Kelurahan (BPS): _TBD_ (issue #8)
+> Kepulauan Seribu masih **ikut** di semua file. Kalau tim memutuskan fokus ke daratan saja, filter `adm2_pcode != "ID3101"` (hasilnya 5 kota, 44 kecamatan, 264 kelurahan).
+
+**Kolom** (tiap file berisi kolom level itu + semua level di atasnya):
+
+| Kolom | Keterangan |
+|---|---|
+| `adm4_name`, `adm4_pcode` | nama & kode kelurahan (**primary key** di ADM4, contoh `ID3171010001`) |
+| `adm3_name`, `adm3_pcode` | kecamatan |
+| `adm2_name`, `adm2_pcode` | kota/kabupaten administrasi |
+| `adm1_name`, `adm1_pcode` | provinsi (`ID31`) |
+| `area_sqkm` | luas (km²) |
+| `center_lat`, `center_lon` | titik tengah wilayah |
+| `valid_on` | tanggal berlaku batas |
+
+> `pcode` = kode wilayah BPS dengan prefix `ID`. Buang prefix-nya (`3171010001`) untuk join ke tabel BPS (issue #8).
+
+**Buka di QGIS:** drag & drop file `.geojson` ke kanvas, atau *Layer → Add Layer → Add Vector Layer*.
+
+**Sitasi:** BPS & OCHA ROAP. *Indonesia – Subnational Administrative Boundaries*. Humanitarian Data Exchange (HDX).
+
+## 2. Populasi per Kelurahan (BPS): _TBD_ (issue #8)

@@ -10,11 +10,7 @@ data/raw/*
 data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
-# File besar di data/external juga jangan di-commit
-data/external/*.zip
-data/external/*.shp
-data/external/*.dbf
-# File geometri besar (GeoJSON/TopoJSON/shapefile) di-download ulang, lihat data/external/README.md
+# data/external: arsip & file geometri besar tidak di-commit (download ulang, lihat data/external/README.md)
 data/external/**/*.zip
 data/external/**/*.geojson
 data/external/**/*.topojson
@@ -22,6 +18,8 @@ data/external/**/*.shp
 data/external/**/*.shx
 data/external/**/*.dbf
 data/external/**/*.prj
+# Pengecualian: batas wilayah DKI hasil filter (kecil, dipakai semua anggota)
+!data/external/batas-wilayah/jakarta_adm*.geojson
 
 # ===== Python =====
 __pycache__/

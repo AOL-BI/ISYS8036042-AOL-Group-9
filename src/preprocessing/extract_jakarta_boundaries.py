@@ -8,6 +8,7 @@ Cara pakai (dari root repo): python src/preprocessing/extract_jakarta_boundaries
 
 Hanya pakai library bawaan Python. File dibaca per baris langsung dari zip
 (tanpa extract), koordinat dibulatkan ke 6 desimal (~0.1 m).
+Kepulauan Seribu dikecualikan lewat EXCLUDE_ADM2.
 """
 import collections
 import csv
@@ -17,6 +18,9 @@ import zipfile
 D = "data/external/batas-wilayah"
 ZIP = f"{D}/idn_admin_boundaries.geojson.zip"
 PROVINSI = b'"adm1_pcode":"ID31"'  # DKI Jakarta
+# Wilayah yang TIDAK diikutkan dalam analisis (keputusan tim, lihat README).
+# ID3101 = Kabupaten Administrasi Kepulauan Seribu. Kosongkan set ini untuk mengikutkannya lagi.
+EXCLUDE_ADM2 = {"ID3101"}
 LEVEL_NAMA = {2: "kota/kabupaten", 3: "kecamatan", 4: "kelurahan"}
 
 
@@ -39,6 +43,8 @@ def ekstrak(z, level):
             if not raw.startswith(b'{"type":"Feature"') or PROVINSI not in raw:
                 continue
             ft = json.loads(raw.rstrip().rstrip(b","))
+            if ft["properties"]["adm2_pcode"] in EXCLUDE_ADM2:
+                continue
             g = ft["geometry"]
             g["coordinates"] = rnd(g["coordinates"])
             feats.append({"type": "Feature",

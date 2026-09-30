@@ -21,9 +21,9 @@ Arsip mentah berukuran besar **tidak di-commit**. Ikuti langkah di bawah untuk d
 ```
 batas-wilayah/
 ├── idn_admin_boundaries.geojson.zip   # arsip asli ADM0–ADM4 se-Indonesia (456 MB, tidak di-commit)
-├── jakarta_adm2.geojson               # 6 kota/kabupaten (0.4 MB)
-├── jakarta_adm3.geojson               # 46 kecamatan (0.8 MB)
-├── jakarta_adm4.geojson               # 270 kelurahan (1.7 MB), unit analisis utama
+├── jakarta_adm2.geojson               # 5 kota administrasi
+├── jakarta_adm3.geojson               # 44 kecamatan
+├── jakarta_adm4.geojson               # 264 kelurahan, unit analisis utama
 ├── jakarta_kelurahan.csv              # atribut kelurahan tanpa geometri, buat join ke data BPS
 └── jakarta_adm4_preview.png
 ```
@@ -43,10 +43,9 @@ python src/preprocessing/extract_jakarta_boundaries.py
 | ID3173 | Kota Jakarta Pusat | 8 | 44 |
 | ID3174 | Kota Jakarta Barat | 8 | 57 |
 | ID3175 | Kota Jakarta Utara | 8 | 33 |
-| ID3101 | Kepulauan Seribu | 2 | 6 |
-| | **Total** | **46** | **270** |
+| | **Total** | **44** | **264** |
 
-> Kepulauan Seribu masih **ikut** di semua file. Kalau tim memutuskan fokus ke daratan saja, filter `adm2_pcode != "ID3101"` (hasilnya 5 kota, 44 kecamatan, 264 kelurahan).
+> **Kepulauan Seribu (`ID3101`, 2 kecamatan, 6 kelurahan) tidak diikutkan** (keputusan tim). Filter ini sudah diterapkan di script ekstraksi lewat variabel `EXCLUDE_ADM2` di `src/preprocessing/extract_jakarta_boundaries.py`, jadi semua file di folder ini sudah bersih dan tidak perlu difilter ulang. Untuk mengikutkannya lagi, kosongkan `EXCLUDE_ADM2 = set()` lalu jalankan ulang script-nya.
 
 **Kolom** (tiap file berisi kolom level itu + semua level di atasnya):
 

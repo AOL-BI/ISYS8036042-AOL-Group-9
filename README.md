@@ -18,7 +18,7 @@ Proyek ini membangun **model prediktif** dari keluhan masyarakat soal infrastruk
 
 ## 🎯 Scope (draft)
 
-- **Wilayah:** DKI Jakarta (unit analisis: kelurahan)
+- **Wilayah:** DKI Jakarta, 5 kota administrasi daratan (Kepulauan Seribu tidak diikutkan). Unit analisis: kelurahan (264)
 - **Jenis infrastruktur:** _TBD_
 - **Sumber data:** keluhan dari media sosial (scraping), batas wilayah kelurahan (GeoJSON), populasi per kelurahan (BPS)
 - **Output:** model prediktif + peta *hotspot* keluhan

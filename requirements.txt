@@ -12,4 +12,7 @@ seaborn
 # Data spasial (GeoJSON batas kelurahan, issue #7)
 geopandas
 
-# Library scraping ditambahkan setelah platform ditentukan (issue #6)
+# Preprocessing teks (stopword + stemming Bahasa Indonesia)
+Sastrawi
+
+# Scraping pakai tweet-harvest (Node.js, dijalankan lewat npx), bukan library Python

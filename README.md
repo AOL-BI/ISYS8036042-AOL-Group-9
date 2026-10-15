@@ -52,8 +52,9 @@ Detail task ada di [GitHub Project board](https://github.com/orgs/AOL-BI/project
 │   ├── processed/      # data bersih siap modeling (tidak di-commit)
 │   └── external/       # GeoJSON kelurahan, data populasi BPS
 ├── src/
-│   ├── scraping/       # script pengambilan data
-│   └── preprocessing/  # cleaning, normalisasi teks, geocoding
+│   ├── scraping/       # generator query tweet-harvest
+│   └── preprocessing/  # pipeline jalan rusak + modul bersama (common.py)
+│       └── personal/   # script/notebook personal assignment masing-masing anggota (arsip)
 ├── knime/              # workflow KNIME hasil export (.knwf)
 ├── notebooks/          # EDA & eksperimen (Jupyter)
 ├── docs/
@@ -79,6 +80,29 @@ source .venv/bin/activate
 pip install -r requirements.txt
 copy .env.example .env   # Windows (macOS/Linux: cp .env.example .env)
 ```
+
+## 🔁 Pipeline Data
+
+Semua script menghitung path dari root repo, jadi bisa dijalankan dari folder mana pun (lokal maupun Colab setelah `git clone`).
+
+```bash
+# 1. Scraping ulang per kecamatan (lihat src/scraping/README.md)
+python src/scraping/generate_queries.py --run
+
+# 2. Preprocessing gabungan: data/raw/* -> data/processed/jalan_rusak/
+python src/preprocessing/preprocess_jalan_rusak.py
+```
+
+| Output (`data/processed/jalan_rusak/`) | Isi |
+|---|---|
+| `keluhan_jalan_rusak.csv` | Data utama modeling: teks, lokasi (kota/kecamatan/kelurahan), fitur waktu, tipe akun, label urgensi |
+| `laporan_perbaikan.csv` | Publikasi perbaikan oleh instansi, layer pembanding untuk peta prioritas |
+| `agregat_kelurahan.csv` / `agregat_kecamatan.csv` | Semua 261 kelurahan / 42 kecamatan (termasuk yang 0 keluhan) + penduduk 2025 |
+| `untuk_dilabeli.csv` | Keluhan yang belum berlabel manual, isi kolom `urgensi` lalu simpan ke `data/raw/labels/` |
+| `semua_kandidat.csv` | Semua baris + alasan dibuang, untuk audit |
+| `ringkasan.md` | Angka untuk bagian Data Understanding |
+
+Label urgensi manual: file CSV berkolom `id_str` + `urgensi` (`Tinggi` / `Sedang` / `Rendah` / `tidak_relevan`) di `data/raw/labels/`. Label manual menimpa label aturan.
 
 ## 🔀 Alur Kerja Tim
 

@@ -1,0 +1,535 @@
+﻿periode_data,tahun,nama_kota,nama_kecamatan,nama_kelurahan,jenis_kelamin,jumlah
+2017,2017,"Kab Adm Kep Seribu","Kep  Seribu Utr","P  Panggang",laki-laki,3426
+2017,2017,"Kab Adm Kep Seribu","Kep  Seribu Utr","P  Kelapa",laki-laki,3546
+2017,2017,"Kab Adm Kep Seribu","Kep  Seribu Utr","P  Harapan",laki-laki,1241
+2017,2017,"Kab Adm Kep Seribu","Kep  Seribu Slt","P  Untung Jawa",laki-laki,1204
+2017,2017,"Kab Adm Kep Seribu","Kep  Seribu Slt","P  Tidung",laki-laki,2797
+2017,2017,"Kab Adm Kep Seribu","Kep  Seribu Slt","P  Pari",laki-laki,1688
+2017,2017,"Jakarta Pusat",Gambir,Gambir,laki-laki,1645
+2017,2017,"Jakarta Pusat",Gambir,Cideng,laki-laki,9802
+2017,2017,"Jakarta Pusat",Gambir,"Petojo Utara",laki-laki,11224
+2017,2017,"Jakarta Pusat",Gambir,"Petojo Selatan",laki-laki,9333
+2017,2017,"Jakarta Pusat",Gambir,"Kebon Kelapa",laki-laki,6642
+2017,2017,"Jakarta Pusat",Gambir,"Duri Pulo",laki-laki,12961
+2017,2017,"Jakarta Pusat","Sawah Besar","Pasar Baru",laki-laki,7977
+2017,2017,"Jakarta Pusat","Sawah Besar","Karang Anyar",laki-laki,17071
+2017,2017,"Jakarta Pusat","Sawah Besar",Kartini,laki-laki,14284
+2017,2017,"Jakarta Pusat","Sawah Besar","Gunung Sahari Utara",laki-laki,10264
+2017,2017,"Jakarta Pusat","Sawah Besar","Mangga Dua Selatan",laki-laki,18761
+2017,2017,"Jakarta Pusat",Kemayoran,Kemayoran,laki-laki,13274
+2017,2017,"Jakarta Pusat",Kemayoran,"Kebon Kosong",laki-laki,17961
+2017,2017,"Jakarta Pusat",Kemayoran,"Harapan Mulia",laki-laki,14502
+2017,2017,"Jakarta Pusat",Kemayoran,Serdang,laki-laki,18765
+2017,2017,"Jakarta Pusat",Kemayoran,"Gunung Sahari Selatan",laki-laki,12387
+2017,2017,"Jakarta Pusat",Kemayoran,"Cempaka Baru",laki-laki,20721
+2017,2017,"Jakarta Pusat",Kemayoran,"Sumur Batu",laki-laki,14239
+2017,2017,"Jakarta Pusat",Kemayoran,"Utan Panjang",laki-laki,18866
+2017,2017,"Jakarta Pusat",Senen,Senen,laki-laki,4532
+2017,2017,"Jakarta Pusat",Senen,Kenari,laki-laki,5859
+2017,2017,"Jakarta Pusat",Senen,Paseban,laki-laki,14851
+2017,2017,"Jakarta Pusat",Senen,Kramat,laki-laki,18914
+2017,2017,"Jakarta Pusat",Senen,Kwitang,laki-laki,9574
+2017,2017,"Jakarta Pusat",Senen,Bungur,laki-laki,11794
+2017,2017,"Jakarta Pusat","Cempaka Putih","Cempaka Putih Timur",laki-laki,14727
+2017,2017,"Jakarta Pusat","Cempaka Putih","Cempaka Putih Barat",laki-laki,21745
+2017,2017,"Jakarta Pusat","Cempaka Putih",Rawasari,laki-laki,13292
+2017,2017,"Jakarta Pusat",Menteng,Menteng,laki-laki,15878
+2017,2017,"Jakarta Pusat",Menteng,Pegangsaan,laki-laki,14648
+2017,2017,"Jakarta Pusat",Menteng,Cikini,laki-laki,5156
+2017,2017,"Jakarta Pusat",Menteng,Gondangdia,laki-laki,2395
+2017,2017,"Jakarta Pusat",Menteng,"Kebon Sirih",laki-laki,8238
+2017,2017,"Jakarta Pusat","Tanah Abang",Gelora,laki-laki,2036
+2017,2017,"Jakarta Pusat","Tanah Abang","Bendungan Hilir",laki-laki,13441
+2017,2017,"Jakarta Pusat","Tanah Abang","Karet Tengsin",laki-laki,12072
+2017,2017,"Jakarta Pusat","Tanah Abang",Petamburan,laki-laki,21814
+2017,2017,"Jakarta Pusat","Tanah Abang","Kebon Melati",laki-laki,21278
+2017,2017,"Jakarta Pusat","Tanah Abang","Kebon Kacang",laki-laki,13732
+2017,2017,"Jakarta Pusat","Tanah Abang","Kampung Bali",laki-laki,7557
+2017,2017,"Jakarta Pusat","Johar Baru","Johar Baru",laki-laki,22718
+2017,2017,"Jakarta Pusat","Johar Baru","Kampung Rawa",laki-laki,13954
+2017,2017,"Jakarta Pusat","Johar Baru",Galur,laki-laki,11982
+2017,2017,"Jakarta Pusat","Johar Baru","Tanah Tinggi",laki-laki,24303
+2017,2017,"Jakarta Utara",Penjaringan,Penjaringan,laki-laki,54723
+2017,2017,"Jakarta Utara",Penjaringan,"Kamal Muara",laki-laki,6934
+2017,2017,"Jakarta Utara",Penjaringan,"Kapuk Muara",laki-laki,19783
+2017,2017,"Jakarta Utara",Penjaringan,Pejagalan,laki-laki,44490
+2017,2017,"Jakarta Utara",Penjaringan,Pluit,laki-laki,25761
+2017,2017,"Jakarta Utara","Tanjung Priok","Tanjung Priok",laki-laki,21205
+2017,2017,"Jakarta Utara","Tanjung Priok","Sunter Jaya",laki-laki,36855
+2017,2017,"Jakarta Utara","Tanjung Priok",Papanggo,laki-laki,23607
+2017,2017,"Jakarta Utara","Tanjung Priok","Sungai Bambu",laki-laki,18326
+2017,2017,"Jakarta Utara","Tanjung Priok","Kebon Bawang",laki-laki,30839
+2017,2017,"Jakarta Utara","Tanjung Priok","Sunter Agung",laki-laki,41528
+2017,2017,"Jakarta Utara","Tanjung Priok",Warakas,laki-laki,26970
+2017,2017,"Jakarta Utara",Koja,Koja,laki-laki,17847
+2017,2017,"Jakarta Utara",Koja,"Tugu Utara",laki-laki,41016
+2017,2017,"Jakarta Utara",Koja,Lagoa,laki-laki,35472
+2017,2017,"Jakarta Utara",Koja,"Rawa Badak Utara",laki-laki,20793
+2017,2017,"Jakarta Utara",Koja,"Tugu Selatan",laki-laki,23103
+2017,2017,"Jakarta Utara",Koja,"Rawa Badak Selatan",laki-laki,25167
+2017,2017,"Jakarta Utara",Cilincing,Cilincing,laki-laki,26810
+2017,2017,"Jakarta Utara",Cilincing,Sukapura,laki-laki,32534
+2017,2017,"Jakarta Utara",Cilincing,Marunda,laki-laki,16156
+2017,2017,"Jakarta Utara",Cilincing,"Kali Baru",laki-laki,43144
+2017,2017,"Jakarta Utara",Cilincing,"Semper Timur",laki-laki,21221
+2017,2017,"Jakarta Utara",Cilincing,Rorotan,laki-laki,23020
+2017,2017,"Jakarta Utara",Cilincing,"Semper Barat",laki-laki,40938
+2017,2017,"Jakarta Utara",Pademangan,"Pademangan Timur",laki-laki,21280
+2017,2017,"Jakarta Utara",Pademangan,"Pademangan Barat",laki-laki,46279
+2017,2017,"Jakarta Utara",Pademangan,Ancol,laki-laki,15032
+2017,2017,"Jakarta Utara","Kelapa Gading","Kelapa Gading Timur",laki-laki,19143
+2017,2017,"Jakarta Utara","Kelapa Gading","Pegangsaan Dua",laki-laki,27794
+2017,2017,"Jakarta Utara","Kelapa Gading","Kelapa Gading Barat",laki-laki,20002
+2017,2017,"Jakarta Barat",Cengkareng,"Cengkareng Barat",laki-laki,37729
+2017,2017,"Jakarta Barat",Cengkareng,"Duri Kosambi",laki-laki,43464
+2017,2017,"Jakarta Barat",Cengkareng,"Rawa Buaya",laki-laki,36093
+2017,2017,"Jakarta Barat",Cengkareng,"Kedaung Kali Angke",laki-laki,19090
+2017,2017,"Jakarta Barat",Cengkareng,Kapuk,laki-laki,78888
+2017,2017,"Jakarta Barat",Cengkareng,"Cengkareng Timur",laki-laki,45874
+2017,2017,"Jakarta Barat","Grogol Petamburan",Grogol,laki-laki,9887
+2017,2017,"Jakarta Barat","Grogol Petamburan","Tanjung Duren Utara",laki-laki,9491
+2017,2017,"Jakarta Barat","Grogol Petamburan",Tomang,laki-laki,16961
+2017,2017,"Jakarta Barat","Grogol Petamburan",Jelambar,laki-laki,17074
+2017,2017,"Jakarta Barat","Grogol Petamburan","Tanjung Duren Selatan",laki-laki,13969
+2017,2017,"Jakarta Barat","Grogol Petamburan","Jelambar Baru",laki-laki,22016
+2017,2017,"Jakarta Barat","Grogol Petamburan","Wijaya Kusuma",laki-laki,23047
+2017,2017,"Jakarta Barat","Taman Sari","Taman Sari",laki-laki,8405
+2017,2017,"Jakarta Barat","Taman Sari",Krukut,laki-laki,11475
+2017,2017,"Jakarta Barat","Taman Sari",Maphar,laki-laki,9715
+2017,2017,"Jakarta Barat","Taman Sari",Tangki,laki-laki,7489
+2017,2017,"Jakarta Barat","Taman Sari","Mangga Besar",laki-laki,4349
+2017,2017,"Jakarta Barat","Taman Sari",Keagungan,laki-laki,10574
+2017,2017,"Jakarta Barat","Taman Sari",Glodok,laki-laki,4244
+2017,2017,"Jakarta Barat","Taman Sari",Pinangsia,laki-laki,6457
+2017,2017,"Jakarta Barat",Tambora,Tambora,laki-laki,6189
+2017,2017,"Jakarta Barat",Tambora,"Kali Anyar",laki-laki,14781
+2017,2017,"Jakarta Barat",Tambora,"Duri Utara",laki-laki,11941
+2017,2017,"Jakarta Barat",Tambora,"Tanah Sereal",laki-laki,15373
+2017,2017,"Jakarta Barat",Tambora,Kerendang,laki-laki,12266
+2017,2017,"Jakarta Barat",Tambora,"Jembatan Besi",laki-laki,18321
+2017,2017,"Jakarta Barat",Tambora,Angke,laki-laki,17837
+2017,2017,"Jakarta Barat",Tambora,"Jembatan Lima",laki-laki,12742
+2017,2017,"Jakarta Barat",Tambora,Pekojan,laki-laki,13563
+2017,2017,"Jakarta Barat",Tambora,"Roa Malaka",laki-laki,1966
+2017,2017,"Jakarta Barat",Tambora,"Duri Selatan",laki-laki,8574
+2017,2017,"Jakarta Barat","Kebon Jeruk","Kebon Jeruk",laki-laki,29647
+2017,2017,"Jakarta Barat","Kebon Jeruk","Sukabumi Utara",laki-laki,22034
+2017,2017,"Jakarta Barat","Kebon Jeruk","Sukabumi Selatan",laki-laki,21560
+2017,2017,"Jakarta Barat","Kebon Jeruk","Kelapa Dua",laki-laki,13439
+2017,2017,"Jakarta Barat","Kebon Jeruk","Duri Kepa",laki-laki,33698
+2017,2017,"Jakarta Barat","Kebon Jeruk","Kedoya Utara",laki-laki,25859
+2017,2017,"Jakarta Barat","Kebon Jeruk","Kedoya Selatan",laki-laki,18233
+2017,2017,"Jakarta Barat","Kali Deres",Kalideres,laki-laki,40823
+2017,2017,"Jakarta Barat","Kali Deres",Semanan,laki-laki,40997
+2017,2017,"Jakarta Barat","Kali Deres","Tegal Alur",laki-laki,47380
+2017,2017,"Jakarta Barat","Kali Deres",Kamal,laki-laki,29770
+2017,2017,"Jakarta Barat","Kali Deres",Pegadungan,laki-laki,40550
+2017,2017,"Jakarta Barat",Palmerah,Palmerah,laki-laki,36205
+2017,2017,"Jakarta Barat",Palmerah,Slipi,laki-laki,9888
+2017,2017,"Jakarta Barat",Palmerah,"Kota Bambu Utara",laki-laki,14952
+2017,2017,"Jakarta Barat",Palmerah,"Jati Pulo",laki-laki,16951
+2017,2017,"Jakarta Barat",Palmerah,Kemanggisan,laki-laki,18613
+2017,2017,"Jakarta Barat",Palmerah,"Kota Bambu Selatan",laki-laki,12764
+2017,2017,"Jakarta Barat",Kembangan,"Kembangan Utara",laki-laki,30870
+2017,2017,"Jakarta Barat",Kembangan,"Meruya Utara",laki-laki,24647
+2017,2017,"Jakarta Barat",Kembangan,"Meruya Selatan",laki-laki,17732
+2017,2017,"Jakarta Barat",Kembangan,Srengseng,laki-laki,25306
+2017,2017,"Jakarta Barat",Kembangan,Joglo,laki-laki,22825
+2017,2017,"Jakarta Barat",Kembangan,"Kembangan Selatan",laki-laki,14919
+2017,2017,"Jakarta Selatan",Tebet,"Tebet Timur",laki-laki,10179
+2017,2017,"Jakarta Selatan",Tebet,"Tebet Barat",laki-laki,12053
+2017,2017,"Jakarta Selatan",Tebet,"Menteng Dalam",laki-laki,21592
+2017,2017,"Jakarta Selatan",Tebet,"Kebon Baru",laki-laki,21047
+2017,2017,"Jakarta Selatan",Tebet,"Bukit Duri",laki-laki,20910
+2017,2017,"Jakarta Selatan",Tebet,"Manggarai Selatan",laki-laki,13663
+2017,2017,"Jakarta Selatan",Tebet,Manggarai,laki-laki,17227
+2017,2017,"Jakarta Selatan","Setia Budi","Setia Budi",laki-laki,1758
+2017,2017,"Jakarta Selatan","Setia Budi","Karet Semanggi",laki-laki,1532
+2017,2017,"Jakarta Selatan","Setia Budi","Karet Kuningan",laki-laki,9409
+2017,2017,"Jakarta Selatan","Setia Budi",Karet,laki-laki,5867
+2017,2017,"Jakarta Selatan","Setia Budi","Menteng Atas",laki-laki,16215
+2017,2017,"Jakarta Selatan","Setia Budi","Pasar Manggis",laki-laki,16051
+2017,2017,"Jakarta Selatan","Setia Budi",Guntur,laki-laki,2252
+2017,2017,"Jakarta Selatan","Setia Budi","Kuningan Timur",laki-laki,3605
+2017,2017,"Jakarta Selatan","Mampang Prapatan","Mampang Prapatan",laki-laki,11088
+2017,2017,"Jakarta Selatan","Mampang Prapatan",Bangka,laki-laki,12768
+2017,2017,"Jakarta Selatan","Mampang Prapatan","Pela Mampang",laki-laki,25949
+2017,2017,"Jakarta Selatan","Mampang Prapatan","Tegal Parang",laki-laki,19588
+2017,2017,"Jakarta Selatan","Mampang Prapatan","Kuningan Barat",laki-laki,7903
+2017,2017,"Jakarta Selatan","Pasar Minggu","Pasar Minggu",laki-laki,14352
+2017,2017,"Jakarta Selatan","Pasar Minggu","Jati Padang",laki-laki,21550
+2017,2017,"Jakarta Selatan","Pasar Minggu","Cilandak Timur",laki-laki,14892
+2017,2017,"Jakarta Selatan","Pasar Minggu",Ragunan,laki-laki,22963
+2017,2017,"Jakarta Selatan","Pasar Minggu","Pejaten Timur",laki-laki,33775
+2017,2017,"Jakarta Selatan","Pasar Minggu","Pejaten Barat",laki-laki,21476
+2017,2017,"Jakarta Selatan","Pasar Minggu",Kebagusan,laki-laki,25375
+2017,2017,"Jakarta Selatan","Kebayoran Lama","Kebayoran Lama Utara",laki-laki,25220
+2017,2017,"Jakarta Selatan","Kebayoran Lama","Pondok Pinang",laki-laki,31771
+2017,2017,"Jakarta Selatan","Kebayoran Lama",Cipulir,laki-laki,22972
+2017,2017,"Jakarta Selatan","Kebayoran Lama","Grogol Utara",laki-laki,25202
+2017,2017,"Jakarta Selatan","Kebayoran Lama","Grogol Selatan",laki-laki,25788
+2017,2017,"Jakarta Selatan","Kebayoran Lama","Kebayoran Lama Selatan",laki-laki,23822
+2017,2017,"Jakarta Selatan",Cilandak,"Cilandak Barat",laki-laki,29422
+2017,2017,"Jakarta Selatan",Cilandak,"Lebak Bulus",laki-laki,20765
+2017,2017,"Jakarta Selatan",Cilandak,"Pondok Labu",laki-laki,25593
+2017,2017,"Jakarta Selatan",Cilandak,"Gandaria Selatan",laki-laki,12604
+2017,2017,"Jakarta Selatan",Cilandak,"Cipete Selatan",laki-laki,15626
+2017,2017,"Jakarta Selatan","Kebayoran Baru",Melawai,laki-laki,1539
+2017,2017,"Jakarta Selatan","Kebayoran Baru",Gunung,laki-laki,5330
+2017,2017,"Jakarta Selatan","Kebayoran Baru","Kramat Pela",laki-laki,8502
+2017,2017,"Jakarta Selatan","Kebayoran Baru",Selong,laki-laki,1681
+2017,2017,"Jakarta Selatan","Kebayoran Baru","Rawa Barat",laki-laki,3183
+2017,2017,"Jakarta Selatan","Kebayoran Baru",Senayan,laki-laki,1720
+2017,2017,"Jakarta Selatan","Kebayoran Baru",Pulo,laki-laki,3223
+2017,2017,"Jakarta Selatan","Kebayoran Baru",Petogogan,laki-laki,6960
+2017,2017,"Jakarta Selatan","Kebayoran Baru","Gandaria Utara",laki-laki,22807
+2017,2017,"Jakarta Selatan","Kebayoran Baru","Cipete Utara",laki-laki,19904
+2017,2017,"Jakarta Selatan",Pancoran,Pancoran,laki-laki,11298
+2017,2017,"Jakarta Selatan",Pancoran,Kalibata,laki-laki,24338
+2017,2017,"Jakarta Selatan",Pancoran,"Rawa Jati",laki-laki,11074
+2017,2017,"Jakarta Selatan",Pancoran,"Duren Tiga",laki-laki,16502
+2017,2017,"Jakarta Selatan",Pancoran,Pengadegan,laki-laki,11963
+2017,2017,"Jakarta Selatan",Pancoran,Cikoko,laki-laki,6379
+2017,2017,"Jakarta Selatan",Jagakarsa,Jagakarsa,laki-laki,34539
+2017,2017,"Jakarta Selatan",Jagakarsa,"Srengseng Sawah",laki-laki,32563
+2017,2017,"Jakarta Selatan",Jagakarsa,Ciganjur,laki-laki,20876
+2017,2017,"Jakarta Selatan",Jagakarsa,"Lenteng Agung",laki-laki,30613
+2017,2017,"Jakarta Selatan",Jagakarsa,"Tanjung Barat",laki-laki,22519
+2017,2017,"Jakarta Selatan",Jagakarsa,Cipedak,laki-laki,20550
+2017,2017,"Jakarta Selatan",Pesanggrahan,Pesanggrahan,laki-laki,15833
+2017,2017,"Jakarta Selatan",Pesanggrahan,Bintaro,laki-laki,29724
+2017,2017,"Jakarta Selatan",Pesanggrahan,"Petukangan Utara",laki-laki,30458
+2017,2017,"Jakarta Selatan",Pesanggrahan,"Petukangan Selatan",laki-laki,20822
+2017,2017,"Jakarta Selatan",Pesanggrahan,Ulujami,laki-laki,23698
+2017,2017,"Jakarta Timur",Matraman,"Pisangan Baru",laki-laki,18656
+2017,2017,"Jakarta Timur",Matraman,"Utan Kayu Utara",laki-laki,16833
+2017,2017,"Jakarta Timur",Matraman,"Kayu Manis",laki-laki,14924
+2017,2017,"Jakarta Timur",Matraman,"Pal Meriam",laki-laki,11778
+2017,2017,"Jakarta Timur",Matraman,"Kebon Manggis",laki-laki,9837
+2017,2017,"Jakarta Timur",Matraman,"Utan Kayu Selatan",laki-laki,19427
+2017,2017,"Jakarta Timur","Pulo Gadung","Pulo Gadung",laki-laki,20119
+2017,2017,"Jakarta Timur","Pulo Gadung","Pisangan Timur",laki-laki,24234
+2017,2017,"Jakarta Timur","Pulo Gadung",Cipinang,laki-laki,23282
+2017,2017,"Jakarta Timur","Pulo Gadung","Jatinegara Kaum",laki-laki,14423
+2017,2017,"Jakarta Timur","Pulo Gadung",Rawamangun,laki-laki,21850
+2017,2017,"Jakarta Timur","Pulo Gadung","Kayu Putih",laki-laki,23429
+2017,2017,"Jakarta Timur","Pulo Gadung",Jati,laki-laki,18808
+2017,2017,"Jakarta Timur",Jatinegara,"Kampung Melayu",laki-laki,15796
+2017,2017,"Jakarta Timur",Jatinegara,"Bidara Cina",laki-laki,21695
+2017,2017,"Jakarta Timur",Jatinegara,"Bali Mester",laki-laki,5669
+2017,2017,"Jakarta Timur",Jatinegara,"Rawa Bunga",laki-laki,12822
+2017,2017,"Jakarta Timur",Jatinegara,"Cipinang Cempedak",laki-laki,18885
+2017,2017,"Jakarta Timur",Jatinegara,"Cipinang Muara",laki-laki,32403
+2017,2017,"Jakarta Timur",Jatinegara,"Cipinang Besar Selatan",laki-laki,20582
+2017,2017,"Jakarta Timur",Jatinegara,"Cipinang Besar Utara",laki-laki,29295
+2017,2017,"Jakarta Timur","Kramat Jati","Kramat Jati",laki-laki,20162
+2017,2017,"Jakarta Timur","Kramat Jati","Kampung Tengah",laki-laki,25589
+2017,2017,"Jakarta Timur","Kramat Jati",Dukuh,laki-laki,14231
+2017,2017,"Jakarta Timur","Kramat Jati","Batu Ampar",laki-laki,27017
+2017,2017,"Jakarta Timur","Kramat Jati","Bale Kambang",laki-laki,16302
+2017,2017,"Jakarta Timur","Kramat Jati",Cililitan,laki-laki,23648
+2017,2017,"Jakarta Timur","Kramat Jati",Cawang,laki-laki,19722
+2017,2017,"Jakarta Timur","Pasar Rebo",Gedong,laki-laki,20544
+2017,2017,"Jakarta Timur","Pasar Rebo",Baru,laki-laki,14001
+2017,2017,"Jakarta Timur","Pasar Rebo",Cijantung,laki-laki,23423
+2017,2017,"Jakarta Timur","Pasar Rebo",Kalisari,laki-laki,24198
+2017,2017,"Jakarta Timur","Pasar Rebo",Pekayon,laki-laki,24739
+2017,2017,"Jakarta Timur",Cakung,Jatinegara,laki-laki,49933
+2017,2017,"Jakarta Timur",Cakung,"Rawa Terate",laki-laki,15646
+2017,2017,"Jakarta Timur",Cakung,Penggilingan,laki-laki,55899
+2017,2017,"Jakarta Timur",Cakung,"Cakung Timur",laki-laki,33759
+2017,2017,"Jakarta Timur",Cakung,"Pulo Gebang",laki-laki,53562
+2017,2017,"Jakarta Timur",Cakung,"Ujung Menteng",laki-laki,16885
+2017,2017,"Jakarta Timur",Cakung,"Cakung Barat",laki-laki,34151
+2017,2017,"Jakarta Timur","Duren Sawit","Duren Sawit",laki-laki,34418
+2017,2017,"Jakarta Timur","Duren Sawit","Pondok Bambu",laki-laki,35211
+2017,2017,"Jakarta Timur","Duren Sawit",Klender,laki-laki,41172
+2017,2017,"Jakarta Timur","Duren Sawit","Pondok Kelapa",laki-laki,39510
+2017,2017,"Jakarta Timur","Duren Sawit","Malaka Sari",laki-laki,16013
+2017,2017,"Jakarta Timur","Duren Sawit","Malaka Jaya",laki-laki,17793
+2017,2017,"Jakarta Timur","Duren Sawit","Pondok Kopi",laki-laki,20129
+2017,2017,"Jakarta Timur",Makasar,Makasar,laki-laki,19943
+2017,2017,"Jakarta Timur",Makasar,"Pinang Ranti",laki-laki,15149
+2017,2017,"Jakarta Timur",Makasar,"Kebon Pala",laki-laki,27443
+2017,2017,"Jakarta Timur",Makasar,"Halim Perdana Kusumah",laki-laki,17237
+2017,2017,"Jakarta Timur",Makasar,"Cipinang Melayu",laki-laki,24790
+2017,2017,"Jakarta Timur",Ciracas,Ciracas,laki-laki,36866
+2017,2017,"Jakarta Timur",Ciracas,Cibubur,laki-laki,37323
+2017,2017,"Jakarta Timur",Ciracas,"Kelapa Dua Wetan",laki-laki,25429
+2017,2017,"Jakarta Timur",Ciracas,Susukan,laki-laki,21876
+2017,2017,"Jakarta Timur",Ciracas,Rambutan,laki-laki,21403
+2017,2017,"Jakarta Timur",Cipayung,Cipayung,laki-laki,15052
+2017,2017,"Jakarta Timur",Cipayung,Cilangkap,laki-laki,15031
+2017,2017,"Jakarta Timur",Cipayung,"Pondok Ranggon",laki-laki,13730
+2017,2017,"Jakarta Timur",Cipayung,Munjul,laki-laki,13260
+2017,2017,"Jakarta Timur",Cipayung,Setu,laki-laki,11074
+2017,2017,"Jakarta Timur",Cipayung,"Bambu Apus",laki-laki,14614
+2017,2017,"Jakarta Timur",Cipayung,"Lubang Buaya",laki-laki,36079
+2017,2017,"Jakarta Timur",Cipayung,Ceger,laki-laki,10824
+2017,2017,"Kab Adm Kep Seribu","Kep  Seribu Utr","P  Panggang","perempuan ",3317
+2017,2017,"Kab Adm Kep Seribu","Kep  Seribu Utr","P  Kelapa","perempuan ",3466
+2017,2017,"Kab Adm Kep Seribu","Kep  Seribu Utr","P  Harapan","perempuan ",1253
+2017,2017,"Kab Adm Kep Seribu","Kep  Seribu Slt","P  Untung Jawa","perempuan ",1165
+2017,2017,"Kab Adm Kep Seribu","Kep  Seribu Slt","P  Tidung","perempuan ",2828
+2017,2017,"Kab Adm Kep Seribu","Kep  Seribu Slt","P  Pari","perempuan ",1660
+2017,2017,"Jakarta Pusat",Gambir,Gambir,"perempuan ",1558
+2017,2017,"Jakarta Pusat",Gambir,Cideng,"perempuan ",9922
+2017,2017,"Jakarta Pusat",Gambir,"Petojo Utara","perempuan ",10915
+2017,2017,"Jakarta Pusat",Gambir,"Petojo Selatan","perempuan ",8836
+2017,2017,"Jakarta Pusat",Gambir,"Kebon Kelapa","perempuan ",6476
+2017,2017,"Jakarta Pusat",Gambir,"Duri Pulo","perempuan ",12440
+2017,2017,"Jakarta Pusat","Sawah Besar","Pasar Baru","perempuan ",8063
+2017,2017,"Jakarta Pusat","Sawah Besar","Karang Anyar","perempuan ",16539
+2017,2017,"Jakarta Pusat","Sawah Besar",Kartini,"perempuan ",14508
+2017,2017,"Jakarta Pusat","Sawah Besar","Gunung Sahari Utara","perempuan ",10446
+2017,2017,"Jakarta Pusat","Sawah Besar","Mangga Dua Selatan","perempuan ",17737
+2017,2017,"Jakarta Pusat",Kemayoran,Kemayoran,"perempuan ",12858
+2017,2017,"Jakarta Pusat",Kemayoran,"Kebon Kosong","perempuan ",17884
+2017,2017,"Jakarta Pusat",Kemayoran,"Harapan Mulia","perempuan ",14088
+2017,2017,"Jakarta Pusat",Kemayoran,Serdang,"perempuan ",18473
+2017,2017,"Jakarta Pusat",Kemayoran,"Gunung Sahari Selatan","perempuan ",12012
+2017,2017,"Jakarta Pusat",Kemayoran,"Cempaka Baru","perempuan ",20315
+2017,2017,"Jakarta Pusat",Kemayoran,"Sumur Batu","perempuan ",14079
+2017,2017,"Jakarta Pusat",Kemayoran,"Utan Panjang","perempuan ",17926
+2017,2017,"Jakarta Pusat",Senen,Senen,"perempuan ",4222
+2017,2017,"Jakarta Pusat",Senen,Kenari,"perempuan ",5658
+2017,2017,"Jakarta Pusat",Senen,Paseban,"perempuan ",14449
+2017,2017,"Jakarta Pusat",Senen,Kramat,"perempuan ",17708
+2017,2017,"Jakarta Pusat",Senen,Kwitang,"perempuan ",9583
+2017,2017,"Jakarta Pusat",Senen,Bungur,"perempuan ",11386
+2017,2017,"Jakarta Pusat","Cempaka Putih","Cempaka Putih Timur","perempuan ",14698
+2017,2017,"Jakarta Pusat","Cempaka Putih","Cempaka Putih Barat","perempuan ",21463
+2017,2017,"Jakarta Pusat","Cempaka Putih",Rawasari,"perempuan ",13290
+2017,2017,"Jakarta Pusat",Menteng,Menteng,"perempuan ",15799
+2017,2017,"Jakarta Pusat",Menteng,Pegangsaan,"perempuan ",14289
+2017,2017,"Jakarta Pusat",Menteng,Cikini,"perempuan ",5126
+2017,2017,"Jakarta Pusat",Menteng,Gondangdia,"perempuan ",2671
+2017,2017,"Jakarta Pusat",Menteng,"Kebon Sirih","perempuan ",7751
+2017,2017,"Jakarta Pusat","Tanah Abang",Gelora,"perempuan ",2055
+2017,2017,"Jakarta Pusat","Tanah Abang","Bendungan Hilir","perempuan ",13438
+2017,2017,"Jakarta Pusat","Tanah Abang","Karet Tengsin","perempuan ",11488
+2017,2017,"Jakarta Pusat","Tanah Abang",Petamburan,"perempuan ",20545
+2017,2017,"Jakarta Pusat","Tanah Abang","Kebon Melati","perempuan ",19919
+2017,2017,"Jakarta Pusat","Tanah Abang","Kebon Kacang","perempuan ",13162
+2017,2017,"Jakarta Pusat","Tanah Abang","Kampung Bali","perempuan ",7409
+2017,2017,"Jakarta Pusat","Johar Baru","Johar Baru","perempuan ",22768
+2017,2017,"Jakarta Pusat","Johar Baru","Kampung Rawa","perempuan ",13231
+2017,2017,"Jakarta Pusat","Johar Baru",Galur,"perempuan ",11057
+2017,2017,"Jakarta Pusat","Johar Baru","Tanah Tinggi","perempuan ",23107
+2017,2017,"Jakarta Utara",Penjaringan,Penjaringan,"perempuan ",50438
+2017,2017,"Jakarta Utara",Penjaringan,"Kamal Muara","perempuan ",6713
+2017,2017,"Jakarta Utara",Penjaringan,"Kapuk Muara","perempuan ",19087
+2017,2017,"Jakarta Utara",Penjaringan,Pejagalan,"perempuan ",43698
+2017,2017,"Jakarta Utara",Penjaringan,Pluit,"perempuan ",26553
+2017,2017,"Jakarta Utara","Tanjung Priok","Tanjung Priok","perempuan ",20867
+2017,2017,"Jakarta Utara","Tanjung Priok","Sunter Jaya","perempuan ",35987
+2017,2017,"Jakarta Utara","Tanjung Priok",Papanggo,"perempuan ",22903
+2017,2017,"Jakarta Utara","Tanjung Priok","Sungai Bambu","perempuan ",17540
+2017,2017,"Jakarta Utara","Tanjung Priok","Kebon Bawang","perempuan ",29982
+2017,2017,"Jakarta Utara","Tanjung Priok","Sunter Agung","perempuan ",41748
+2017,2017,"Jakarta Utara","Tanjung Priok",Warakas,"perempuan ",26375
+2017,2017,"Jakarta Utara",Koja,Koja,"perempuan ",16586
+2017,2017,"Jakarta Utara",Koja,"Tugu Utara","perempuan ",40303
+2017,2017,"Jakarta Utara",Koja,Lagoa,"perempuan ",35115
+2017,2017,"Jakarta Utara",Koja,"Rawa Badak Utara","perempuan ",20324
+2017,2017,"Jakarta Utara",Koja,"Tugu Selatan","perempuan ",22163
+2017,2017,"Jakarta Utara",Koja,"Rawa Badak Selatan","perempuan ",24467
+2017,2017,"Jakarta Utara",Cilincing,Cilincing,"perempuan ",25938
+2017,2017,"Jakarta Utara",Cilincing,Sukapura,"perempuan ",32763
+2017,2017,"Jakarta Utara",Cilincing,Marunda,"perempuan ",15464
+2017,2017,"Jakarta Utara",Cilincing,"Kali Baru","perempuan ",41347
+2017,2017,"Jakarta Utara",Cilincing,"Semper Timur","perempuan ",20792
+2017,2017,"Jakarta Utara",Cilincing,Rorotan,"perempuan ",22500
+2017,2017,"Jakarta Utara",Cilincing,"Semper Barat","perempuan ",40389
+2017,2017,"Jakarta Utara",Pademangan,"Pademangan Timur","perempuan ",21323
+2017,2017,"Jakarta Utara",Pademangan,"Pademangan Barat","perempuan ",43496
+2017,2017,"Jakarta Utara",Pademangan,Ancol,"perempuan ",13777
+2017,2017,"Jakarta Utara","Kelapa Gading","Kelapa Gading Timur","perempuan ",20328
+2017,2017,"Jakarta Utara","Kelapa Gading","Pegangsaan Dua","perempuan ",28270
+2017,2017,"Jakarta Utara","Kelapa Gading","Kelapa Gading Barat","perempuan ",20573
+2017,2017,"Jakarta Barat",Cengkareng,"Cengkareng Barat","perempuan ",36847
+2017,2017,"Jakarta Barat",Cengkareng,"Duri Kosambi","perempuan ",42626
+2017,2017,"Jakarta Barat",Cengkareng,"Rawa Buaya","perempuan ",34636
+2017,2017,"Jakarta Barat",Cengkareng,"Kedaung Kali Angke","perempuan ",17956
+2017,2017,"Jakarta Barat",Cengkareng,Kapuk,"perempuan ",75109
+2017,2017,"Jakarta Barat",Cengkareng,"Cengkareng Timur","perempuan ",44686
+2017,2017,"Jakarta Barat","Grogol Petamburan",Grogol,"perempuan ",9820
+2017,2017,"Jakarta Barat","Grogol Petamburan","Tanjung Duren Utara","perempuan ",10014
+2017,2017,"Jakarta Barat","Grogol Petamburan",Tomang,"perempuan ",16846
+2017,2017,"Jakarta Barat","Grogol Petamburan",Jelambar,"perempuan ",17304
+2017,2017,"Jakarta Barat","Grogol Petamburan","Tanjung Duren Selatan","perempuan ",14112
+2017,2017,"Jakarta Barat","Grogol Petamburan","Jelambar Baru","perempuan ",21705
+2017,2017,"Jakarta Barat","Grogol Petamburan","Wijaya Kusuma","perempuan ",21794
+2017,2017,"Jakarta Barat","Taman Sari","Taman Sari","perempuan ",8504
+2017,2017,"Jakarta Barat","Taman Sari",Krukut,"perempuan ",11108
+2017,2017,"Jakarta Barat","Taman Sari",Maphar,"perempuan ",9513
+2017,2017,"Jakarta Barat","Taman Sari",Tangki,"perempuan ",7732
+2017,2017,"Jakarta Barat","Taman Sari","Mangga Besar","perempuan ",4521
+2017,2017,"Jakarta Barat","Taman Sari",Keagungan,"perempuan ",9923
+2017,2017,"Jakarta Barat","Taman Sari",Glodok,"perempuan ",4499
+2017,2017,"Jakarta Barat","Taman Sari",Pinangsia,"perempuan ",6148
+2017,2017,"Jakarta Barat",Tambora,Tambora,"perempuan ",6061
+2017,2017,"Jakarta Barat",Tambora,"Kali Anyar","perempuan ",13748
+2017,2017,"Jakarta Barat",Tambora,"Duri Utara","perempuan ",11455
+2017,2017,"Jakarta Barat",Tambora,"Tanah Sereal","perempuan ",15138
+2017,2017,"Jakarta Barat",Tambora,Kerendang,"perempuan ",11235
+2017,2017,"Jakarta Barat",Tambora,"Jembatan Besi","perempuan ",16706
+2017,2017,"Jakarta Barat",Tambora,Angke,"perempuan ",16823
+2017,2017,"Jakarta Barat",Tambora,"Jembatan Lima","perempuan ",12041
+2017,2017,"Jakarta Barat",Tambora,Pekojan,"perempuan ",13290
+2017,2017,"Jakarta Barat",Tambora,"Roa Malaka","perempuan ",1983
+2017,2017,"Jakarta Barat",Tambora,"Duri Selatan","perempuan ",8351
+2017,2017,"Jakarta Barat","Kebon Jeruk","Kebon Jeruk","perempuan ",29283
+2017,2017,"Jakarta Barat","Kebon Jeruk","Sukabumi Utara","perempuan ",21726
+2017,2017,"Jakarta Barat","Kebon Jeruk","Sukabumi Selatan","perempuan ",20888
+2017,2017,"Jakarta Barat","Kebon Jeruk","Kelapa Dua","perempuan ",13283
+2017,2017,"Jakarta Barat","Kebon Jeruk","Duri Kepa","perempuan ",33691
+2017,2017,"Jakarta Barat","Kebon Jeruk","Kedoya Utara","perempuan ",25396
+2017,2017,"Jakarta Barat","Kebon Jeruk","Kedoya Selatan","perempuan ",17853
+2017,2017,"Jakarta Barat","Kali Deres",Kalideres,"perempuan ",39573
+2017,2017,"Jakarta Barat","Kali Deres",Semanan,"perempuan ",38820
+2017,2017,"Jakarta Barat","Kali Deres","Tegal Alur","perempuan ",46256
+2017,2017,"Jakarta Barat","Kali Deres",Kamal,"perempuan ",28371
+2017,2017,"Jakarta Barat","Kali Deres",Pegadungan,"perempuan ",40138
+2017,2017,"Jakarta Barat",Palmerah,Palmerah,"perempuan ",35304
+2017,2017,"Jakarta Barat",Palmerah,Slipi,"perempuan ",9327
+2017,2017,"Jakarta Barat",Palmerah,"Kota Bambu Utara","perempuan ",14381
+2017,2017,"Jakarta Barat",Palmerah,"Jati Pulo","perempuan ",16569
+2017,2017,"Jakarta Barat",Palmerah,Kemanggisan,"perempuan ",18442
+2017,2017,"Jakarta Barat",Palmerah,"Kota Bambu Selatan","perempuan ",12223
+2017,2017,"Jakarta Barat",Kembangan,"Kembangan Utara","perempuan ",29748
+2017,2017,"Jakarta Barat",Kembangan,"Meruya Utara","perempuan ",24109
+2017,2017,"Jakarta Barat",Kembangan,"Meruya Selatan","perempuan ",17527
+2017,2017,"Jakarta Barat",Kembangan,Srengseng,"perempuan ",24620
+2017,2017,"Jakarta Barat",Kembangan,Joglo,"perempuan ",22545
+2017,2017,"Jakarta Barat",Kembangan,"Kembangan Selatan","perempuan ",14908
+2017,2017,"Jakarta Selatan",Tebet,"Tebet Timur","perempuan ",10843
+2017,2017,"Jakarta Selatan",Tebet,"Tebet Barat","perempuan ",12528
+2017,2017,"Jakarta Selatan",Tebet,"Menteng Dalam","perempuan ",21199
+2017,2017,"Jakarta Selatan",Tebet,"Kebon Baru","perempuan ",20771
+2017,2017,"Jakarta Selatan",Tebet,"Bukit Duri","perempuan ",20582
+2017,2017,"Jakarta Selatan",Tebet,"Manggarai Selatan","perempuan ",13572
+2017,2017,"Jakarta Selatan",Tebet,Manggarai,"perempuan ",16967
+2017,2017,"Jakarta Selatan","Setia Budi","Setia Budi","perempuan ",1783
+2017,2017,"Jakarta Selatan","Setia Budi","Karet Semanggi","perempuan ",1493
+2017,2017,"Jakarta Selatan","Setia Budi","Karet Kuningan","perempuan ",9291
+2017,2017,"Jakarta Selatan","Setia Budi",Karet,"perempuan ",5686
+2017,2017,"Jakarta Selatan","Setia Budi","Menteng Atas","perempuan ",16456
+2017,2017,"Jakarta Selatan","Setia Budi","Pasar Manggis","perempuan ",15709
+2017,2017,"Jakarta Selatan","Setia Budi",Guntur,"perempuan ",2360
+2017,2017,"Jakarta Selatan","Setia Budi","Kuningan Timur","perempuan ",3443
+2017,2017,"Jakarta Selatan","Mampang Prapatan","Mampang Prapatan","perempuan ",10755
+2017,2017,"Jakarta Selatan","Mampang Prapatan",Bangka,"perempuan ",12318
+2017,2017,"Jakarta Selatan","Mampang Prapatan","Pela Mampang","perempuan ",25324
+2017,2017,"Jakarta Selatan","Mampang Prapatan","Tegal Parang","perempuan ",18589
+2017,2017,"Jakarta Selatan","Mampang Prapatan","Kuningan Barat","perempuan ",7392
+2017,2017,"Jakarta Selatan","Pasar Minggu","Pasar Minggu","perempuan ",14115
+2017,2017,"Jakarta Selatan","Pasar Minggu","Jati Padang","perempuan ",21532
+2017,2017,"Jakarta Selatan","Pasar Minggu","Cilandak Timur","perempuan ",13897
+2017,2017,"Jakarta Selatan","Pasar Minggu",Ragunan,"perempuan ",22379
+2017,2017,"Jakarta Selatan","Pasar Minggu","Pejaten Timur","perempuan ",33300
+2017,2017,"Jakarta Selatan","Pasar Minggu","Pejaten Barat","perempuan ",21259
+2017,2017,"Jakarta Selatan","Pasar Minggu",Kebagusan,"perempuan ",24766
+2017,2017,"Jakarta Selatan","Kebayoran Lama","Kebayoran Lama Utara","perempuan ",24220
+2017,2017,"Jakarta Selatan","Kebayoran Lama","Pondok Pinang","perempuan ",31774
+2017,2017,"Jakarta Selatan","Kebayoran Lama",Cipulir,"perempuan ",22683
+2017,2017,"Jakarta Selatan","Kebayoran Lama","Grogol Utara","perempuan ",24566
+2017,2017,"Jakarta Selatan","Kebayoran Lama","Grogol Selatan","perempuan ",25031
+2017,2017,"Jakarta Selatan","Kebayoran Lama","Kebayoran Lama Selatan","perempuan ",23357
+2017,2017,"Jakarta Selatan",Cilandak,"Cilandak Barat","perempuan ",29372
+2017,2017,"Jakarta Selatan",Cilandak,"Lebak Bulus","perempuan ",20767
+2017,2017,"Jakarta Selatan",Cilandak,"Pondok Labu","perempuan ",25874
+2017,2017,"Jakarta Selatan",Cilandak,"Gandaria Selatan","perempuan ",12654
+2017,2017,"Jakarta Selatan",Cilandak,"Cipete Selatan","perempuan ",15454
+2017,2017,"Jakarta Selatan","Kebayoran Baru",Melawai,"perempuan ",1652
+2017,2017,"Jakarta Selatan","Kebayoran Baru",Gunung,"perempuan ",5346
+2017,2017,"Jakarta Selatan","Kebayoran Baru","Kramat Pela","perempuan ",8225
+2017,2017,"Jakarta Selatan","Kebayoran Baru",Selong,"perempuan ",1754
+2017,2017,"Jakarta Selatan","Kebayoran Baru","Rawa Barat","perempuan ",3275
+2017,2017,"Jakarta Selatan","Kebayoran Baru",Senayan,"perempuan ",1800
+2017,2017,"Jakarta Selatan","Kebayoran Baru",Pulo,"perempuan ",3529
+2017,2017,"Jakarta Selatan","Kebayoran Baru",Petogogan,"perempuan ",6652
+2017,2017,"Jakarta Selatan","Kebayoran Baru","Gandaria Utara","perempuan ",22891
+2017,2017,"Jakarta Selatan","Kebayoran Baru","Cipete Utara","perempuan ",19508
+2017,2017,"Jakarta Selatan",Pancoran,Pancoran,"perempuan ",10997
+2017,2017,"Jakarta Selatan",Pancoran,Kalibata,"perempuan ",24042
+2017,2017,"Jakarta Selatan",Pancoran,"Rawa Jati","perempuan ",11084
+2017,2017,"Jakarta Selatan",Pancoran,"Duren Tiga","perempuan ",15974
+2017,2017,"Jakarta Selatan",Pancoran,Pengadegan,"perempuan ",11999
+2017,2017,"Jakarta Selatan",Pancoran,Cikoko,"perempuan ",6275
+2017,2017,"Jakarta Selatan",Jagakarsa,Jagakarsa,"perempuan ",33898
+2017,2017,"Jakarta Selatan",Jagakarsa,"Srengseng Sawah","perempuan ",31761
+2017,2017,"Jakarta Selatan",Jagakarsa,Ciganjur,"perempuan ",20447
+2017,2017,"Jakarta Selatan",Jagakarsa,"Lenteng Agung","perempuan ",29862
+2017,2017,"Jakarta Selatan",Jagakarsa,"Tanjung Barat","perempuan ",22290
+2017,2017,"Jakarta Selatan",Jagakarsa,Cipedak,"perempuan ",20328
+2017,2017,"Jakarta Selatan",Pesanggrahan,Pesanggrahan,"perempuan ",15554
+2017,2017,"Jakarta Selatan",Pesanggrahan,Bintaro,"perempuan ",29387
+2017,2017,"Jakarta Selatan",Pesanggrahan,"Petukangan Utara","perempuan ",30301
+2017,2017,"Jakarta Selatan",Pesanggrahan,"Petukangan Selatan","perempuan ",20741
+2017,2017,"Jakarta Selatan",Pesanggrahan,Ulujami,"perempuan ",22960
+2017,2017,"Jakarta Timur",Matraman,"Pisangan Baru","perempuan ",18494
+2017,2017,"Jakarta Timur",Matraman,"Utan Kayu Utara","perempuan ",16388
+2017,2017,"Jakarta Timur",Matraman,"Kayu Manis","perempuan ",14968
+2017,2017,"Jakarta Timur",Matraman,"Pal Meriam","perempuan ",11738
+2017,2017,"Jakarta Timur",Matraman,"Kebon Manggis","perempuan ",9672
+2017,2017,"Jakarta Timur",Matraman,"Utan Kayu Selatan","perempuan ",19512
+2017,2017,"Jakarta Timur","Pulo Gadung","Pulo Gadung","perempuan ",19333
+2017,2017,"Jakarta Timur","Pulo Gadung","Pisangan Timur","perempuan ",24013
+2017,2017,"Jakarta Timur","Pulo Gadung",Cipinang,"perempuan ",22970
+2017,2017,"Jakarta Timur","Pulo Gadung","Jatinegara Kaum","perempuan ",13722
+2017,2017,"Jakarta Timur","Pulo Gadung",Rawamangun,"perempuan ",22124
+2017,2017,"Jakarta Timur","Pulo Gadung","Kayu Putih","perempuan ",23438
+2017,2017,"Jakarta Timur","Pulo Gadung",Jati,"perempuan ",19314
+2017,2017,"Jakarta Timur",Jatinegara,"Kampung Melayu","perempuan ",14941
+2017,2017,"Jakarta Timur",Jatinegara,"Bidara Cina","perempuan ",21732
+2017,2017,"Jakarta Timur",Jatinegara,"Bali Mester","perempuan ",5619
+2017,2017,"Jakarta Timur",Jatinegara,"Rawa Bunga","perempuan ",12498
+2017,2017,"Jakarta Timur",Jatinegara,"Cipinang Cempedak","perempuan ",19141
+2017,2017,"Jakarta Timur",Jatinegara,"Cipinang Muara","perempuan ",31746
+2017,2017,"Jakarta Timur",Jatinegara,"Cipinang Besar Selatan","perempuan ",19875
+2017,2017,"Jakarta Timur",Jatinegara,"Cipinang Besar Utara","perempuan ",27737
+2017,2017,"Jakarta Timur","Kramat Jati","Kramat Jati","perempuan ",19415
+2017,2017,"Jakarta Timur","Kramat Jati","Kampung Tengah","perempuan ",24855
+2017,2017,"Jakarta Timur","Kramat Jati",Dukuh,"perempuan ",13887
+2017,2017,"Jakarta Timur","Kramat Jati","Batu Ampar","perempuan ",26773
+2017,2017,"Jakarta Timur","Kramat Jati","Bale Kambang","perempuan ",15780
+2017,2017,"Jakarta Timur","Kramat Jati",Cililitan,"perempuan ",23169
+2017,2017,"Jakarta Timur","Kramat Jati",Cawang,"perempuan ",19149
+2017,2017,"Jakarta Timur","Pasar Rebo",Gedong,"perempuan ",20297
+2017,2017,"Jakarta Timur","Pasar Rebo",Baru,"perempuan ",13150
+2017,2017,"Jakarta Timur","Pasar Rebo",Cijantung,"perempuan ",23096
+2017,2017,"Jakarta Timur","Pasar Rebo",Kalisari,"perempuan ",23787
+2017,2017,"Jakarta Timur","Pasar Rebo",Pekayon,"perempuan ",24136
+2017,2017,"Jakarta Timur",Cakung,Jatinegara,"perempuan ",47042
+2017,2017,"Jakarta Timur",Cakung,"Rawa Terate","perempuan ",14339
+2017,2017,"Jakarta Timur",Cakung,Penggilingan,"perempuan ",53789
+2017,2017,"Jakarta Timur",Cakung,"Cakung Timur","perempuan ",32679
+2017,2017,"Jakarta Timur",Cakung,"Pulo Gebang","perempuan ",52074
+2017,2017,"Jakarta Timur",Cakung,"Ujung Menteng","perempuan ",16529
+2017,2017,"Jakarta Timur",Cakung,"Cakung Barat","perempuan ",32875
+2017,2017,"Jakarta Timur","Duren Sawit","Duren Sawit","perempuan ",34252
+2017,2017,"Jakarta Timur","Duren Sawit","Pondok Bambu","perempuan ",34100
+2017,2017,"Jakarta Timur","Duren Sawit",Klender,"perempuan ",39939
+2017,2017,"Jakarta Timur","Duren Sawit","Pondok Kelapa","perempuan ",39523
+2017,2017,"Jakarta Timur","Duren Sawit","Malaka Sari","perempuan ",16536
+2017,2017,"Jakarta Timur","Duren Sawit","Malaka Jaya","perempuan ",18436
+2017,2017,"Jakarta Timur","Duren Sawit","Pondok Kopi","perempuan ",19922
+2017,2017,"Jakarta Timur",Makasar,Makasar,"perempuan ",19671
+2017,2017,"Jakarta Timur",Makasar,"Pinang Ranti","perempuan ",14983
+2017,2017,"Jakarta Timur",Makasar,"Kebon Pala","perempuan ",26484
+2017,2017,"Jakarta Timur",Makasar,"Halim Perdana Kusumah","perempuan ",16670
+2017,2017,"Jakarta Timur",Makasar,"Cipinang Melayu","perempuan ",24561
+2017,2017,"Jakarta Timur",Ciracas,Ciracas,"perempuan ",35846
+2017,2017,"Jakarta Timur",Ciracas,Cibubur,"perempuan ",37077
+2017,2017,"Jakarta Timur",Ciracas,"Kelapa Dua Wetan","perempuan ",25551
+2017,2017,"Jakarta Timur",Ciracas,Susukan,"perempuan ",20904
+2017,2017,"Jakarta Timur",Ciracas,Rambutan,"perempuan ",20661
+2017,2017,"Jakarta Timur",Cipayung,Cipayung,"perempuan ",14256
+2017,2017,"Jakarta Timur",Cipayung,Cilangkap,"perempuan ",14698
+2017,2017,"Jakarta Timur",Cipayung,"Pondok Ranggon","perempuan ",13455
+2017,2017,"Jakarta Timur",Cipayung,Munjul,"perempuan ",12954
+2017,2017,"Jakarta Timur",Cipayung,Setu,"perempuan ",10781
+2017,2017,"Jakarta Timur",Cipayung,"Bambu Apus","perempuan ",14337
+2017,2017,"Jakarta Timur",Cipayung,"Lubang Buaya","perempuan ",35296
+2017,2017,"Jakarta Timur",Cipayung,Ceger,"perempuan ",10378

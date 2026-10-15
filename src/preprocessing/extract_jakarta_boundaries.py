@@ -8,7 +8,8 @@ Cara pakai (dari root repo): python src/preprocessing/extract_jakarta_boundaries
 
 Hanya pakai library bawaan Python. File dibaca per baris langsung dari zip
 (tanpa extract), koordinat dibulatkan ke 6 desimal (~0.1 m).
-Kepulauan Seribu dikecualikan lewat EXCLUDE_ADM2.
+Kepulauan Seribu dikecualikan lewat EXCLUDE_ADM2; poligon non-administratif
+(danau, dll.) dikecualikan lewat KODE_NON_ADMIN.
 """
 import collections
 import csv
@@ -21,6 +22,10 @@ PROVINSI = b'"adm1_pcode":"ID31"'  # DKI Jakarta
 # Wilayah yang TIDAK diikutkan dalam analisis (keputusan tim, lihat README).
 # ID3101 = Kabupaten Administrasi Kepulauan Seribu. Kosongkan set ini untuk mengikutkannya lagi.
 EXCLUDE_ADM2 = {"ID3101"}
+# Poligon non-administratif di data BPS: kode berakhiran 888/555 BUKAN kelurahan/kecamatan resmi.
+# Di DKI: Danau Sunter (ID3175888888), Danau Sunter Dll (ID3175555888), Prepedan (ID3174080888).
+# Dibuang supaya jumlahnya sama dengan daftar resmi (42 kecamatan, 261 kelurahan daratan).
+KODE_NON_ADMIN = ("888", "555")
 LEVEL_NAMA = {2: "kota/kabupaten", 3: "kecamatan", 4: "kelurahan"}
 
 
@@ -44,6 +49,8 @@ def ekstrak(z, level):
                 continue
             ft = json.loads(raw.rstrip().rstrip(b","))
             if ft["properties"]["adm2_pcode"] in EXCLUDE_ADM2:
+                continue
+            if level >= 3 and ft["properties"][f"adm{level}_pcode"].endswith(KODE_NON_ADMIN):
                 continue
             g = ft["geometry"]
             g["coordinates"] = rnd(g["coordinates"])

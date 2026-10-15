@@ -14,13 +14,13 @@ Proyek ini membangun **model prediktif** dari keluhan masyarakat soal infrastruk
 |------|-----|-------|
 | Muhammad Rasyid Ismail | 2802939676 | _TBD_ |
 | Angelina Oktaviani Putri | 2802939650 | _TBD_ |
-| Alifah Olinda Fiorinda | 2802939650 | _TBD_ |
+| Alifah Olinda Fiorinda | 2802939726 | _TBD_ |
 
 ## 🎯 Scope (draft)
 
-- **Wilayah:** DKI Jakarta, 5 kota administrasi daratan (Kepulauan Seribu tidak diikutkan). Unit analisis: kelurahan (264)
+- **Wilayah:** DKI Jakarta, 5 kota administrasi daratan (Kepulauan Seribu tidak diikutkan). Unit analisis: kelurahan (261)
 - **Jenis infrastruktur:** _TBD_
-- **Sumber data:** keluhan dari media sosial (scraping), batas wilayah kelurahan (GeoJSON), populasi per kelurahan (BPS)
+- **Sumber data:** keluhan dari media sosial (scraping), batas wilayah kelurahan (GeoJSON), estimasi penduduk per kelurahan (Satu Data Jakarta 2017 diskalakan ke BPS 2025)
 - **Output:** model prediktif + peta *hotspot* keluhan
 
 ## 🗓️ Timeline

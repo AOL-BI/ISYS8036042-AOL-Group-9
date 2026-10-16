@@ -52,14 +52,23 @@ def load_tweets(pola_glob, sumber):
     Semua kolom dibaca sebagai teks supaya id_str 19 digit tidak rusak."""
     paths = sorted(glob.glob(str(ROOT / pola_glob), recursive=True))
     frames = []
+    kosong = []
     for p in paths:
-        df = pd.read_csv(p, dtype=str, keep_default_na=False)
+        try:
+            df = pd.read_csv(p, dtype=str, keep_default_na=False)
+        except pd.errors.EmptyDataError:
+            df = pd.DataFrame()
+        if df.empty:   # tweet-harvest menulis file kosong kalau query tanpa hasil / kena rate limit
+            kosong.append(rel(p))
+            continue
         if not {"full_text", "id_str", "created_at", "username"} <= set(df.columns) or "urgensi" in df.columns:
             print(f"[lewati] {rel(p)}: bukan file mentah tweet-harvest")
             continue
         df["sumber"] = sumber
         df["sumber_file"] = rel(p)
         frames.append(df)
+    if kosong:
+        print(f"[peringatan] {len(kosong)} file kosong dilewati: {', '.join(Path(k).name for k in kosong)}")
     if not frames:
         return pd.DataFrame()
     out = pd.concat(frames, ignore_index=True)

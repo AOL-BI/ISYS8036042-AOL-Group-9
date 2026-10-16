@@ -11,7 +11,7 @@ Cara pakai (dari folder mana pun):
 
 Token: isi TWEET_HARVEST_TOKEN di file .env (root repo) atau pakai --token.
 Hasil: data/raw/jalan_rusak_v2/tweets-data/jr_<nama>.csv (otomatis dibaca preprocess_jalan_rusak.py).
-File yang sudah ada dilewati, jadi kalau kena rate limit tinggal jalankan ulang.
+File yang sudah berisi data dilewati; file kosong di-scrape ulang. Kalau kena rate limit tinggal jalankan ulang.
 """
 import argparse
 import datetime as dt
@@ -79,7 +79,16 @@ def bangun_query(nama_list, pakai_jakarta, since, until):
     q = f"({kw}) {tempat}"
     if pakai_jakarta:
         q += " jakarta"
-    return f"{q} lang:id -filter:retweets since:{since} until:{until}"
+    return f"{q} -filter:retweets since:{since} until:{until}"
+
+
+def ada_isinya(path):
+    """True kalau file CSV sudah ada dan berisi minimal satu baris data selain header."""
+    if not path.exists():
+        return False
+    with open(path, encoding="utf-8", errors="ignore") as f:
+        baris = [b for b in f if b.strip()]
+    return len(baris) >= 2
 
 
 def slug(teks):
@@ -147,9 +156,11 @@ def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     for i, (nama, q) in enumerate(queries, 1):
         target = OUT_DIR / "tweets-data" / nama
-        if target.exists():
+        if ada_isinya(target):
             print(f"[{i}/{len(queries)}] lewati {nama} (sudah ada)")
             continue
+        if target.exists():   # file kosong dari run sebelumnya (tanpa hasil / rate limit): scrape ulang
+            target.unlink()
         print(f"[{i}/{len(queries)}] {nama}\n    {q}")
         cmd = [npx, "-y", "tweet-harvest@latest", "-t", token, "-s", q, "-o", nama, "-e", "csv",
                "-l", str(args.limit), "--tab", "LATEST"]

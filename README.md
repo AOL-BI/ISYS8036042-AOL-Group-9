@@ -55,7 +55,7 @@ Detail task ada di [GitHub Project board](https://github.com/orgs/AOL-BI/project
 │   ├── scraping/       # generator query tweet-harvest
 │   └── preprocessing/  # pipeline jalan rusak + modul bersama (common.py)
 │       └── personal/   # script/notebook personal assignment masing-masing anggota (arsip)
-├── knime/              # workflow KNIME hasil export (.knwf)
+├── knime/              # workflow KNIME (root repo = KNIME workspace; data hasil eksekusi tidak di-commit)
 ├── notebooks/          # EDA & eksperimen (Jupyter)
 ├── docs/
 │   └── meeting-notes/  # notulen konsultasi dosen & rapat tim

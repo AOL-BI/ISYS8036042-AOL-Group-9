@@ -10,6 +10,8 @@ data/raw/*
 data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
+# Arsip data di root (mis. data.zip buat dibagi lewat Drive)
+/*.zip
 # data/external: arsip & file geometri besar tidak di-commit (download ulang, lihat data/external/README.md)
 data/external/**/*.zip
 data/external/**/*.geojson
@@ -33,10 +35,19 @@ env/
 .ipynb_checkpoints/
 
 # ===== KNIME =====
-# Commit workflow hasil export (.knwf), bukan workspace-nya
+# Root repo dipakai sebagai KNIME workspace: metadata workspace tidak di-commit.
 .metadata/
 knime-workspace/
 *.knime-tmp
+.knimeLock
+# Workflow di knime/ di-commit TANPA data hasil eksekusi (isinya tweet & bisa besar).
+# Yang ikut: workflow.knime, settings.xml tiap node, workflow.svg, metadata.
+knime/**/.savedWithData
+knime/**/.artifacts/
+knime/**/port_*/
+knime/**/internal/
+knime/**/filestore/
+knime/*/data/
 
 # ===== OS / Editor =====
 .DS_Store

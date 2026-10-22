@@ -1,0 +1,39 @@
+kolom,tipe,terisi_%,nilai_unik,contoh,deskripsi
+id_str,str,100.0,807,"(teks, tidak ditampilkan)",ID unik tweet (string 19 digit)
+created_at,str,100.0,807,"2019-01-24 16:22:02, 2019-01-25 09:10:04, 2019-01-29 17:56:41",Waktu tweet (WIB)
+tahun,int64,100.0,8,"2019, 2020, 2021",Tahun tweet
+bulan,int64,100.0,12,"1, 2, 3",Bulan tweet (1-12)
+periode,str,100.0,87,"2019-01, 2019-02, 2019-03",Tahun-bulan (YYYY-MM)
+jam,int64,100.0,24,"16, 9, 17","Jam tweet (0-23, WIB)"
+hari,str,100.0,7,"Thursday, Friday, Tuesday",Nama hari (bahasa Inggris)
+akhir_pekan,bool,100.0,2,"False, True",True jika Sabtu/Minggu
+sumber,str,100.0,3,"scrape_kecamatan, mail_fasilitas, fio_awal","Asal data: fio_awal, scrape_kecamatan, mail_fasilitas"
+tipe_akun,str,100.0,2,"media_resmi, warga","warga atau media_resmi (media, instansi, akun info)"
+akun_media,str,55.5,49,"(teks, tidak ditampilkan)",Username bila akun media/resmi; kosong untuk warga
+user_hash,str,100.0,341,"(teks, tidak ditampilkan)",ID pengguna yang di-hash (anonim)
+jenis,str,100.0,1,keluhan,Jenis konten; di file ini selalu 'keluhan'
+full_text,str,100.0,807,"(teks, tidak ditampilkan)",Teks asli tweet
+text_clean,str,100.0,807,"(teks, tidak ditampilkan)","Teks setelah dibersihkan (lowercase, URL/mention dibuang, slang dinormalisasi)"
+text_model,str,100.0,807,"(teks, tidak ditampilkan)","text_clean setelah stopword removal + stemming (Sastrawi), input fitur teks model"
+panjang_teks,int64,100.0,46,"25, 19, 21",Jumlah kata di text_clean
+kota,str,63.4,5,"Jakarta Timur, Jakarta Selatan, Jakarta Utara",Kota administrasi hasil ekstraksi lokasi
+kecamatan,str,56.3,40,"Pasar Rebo, Cilandak, Pademangan",Kecamatan hasil ekstraksi lokasi
+kelurahan,str,34.8,76,"Pondok Labu, Ancol, Grogol",Kelurahan hasil ekstraksi lokasi
+adm4_pcode,str,34.8,76,"ID3171030002, ID3175020003, ID3174040004","Kode BPS kelurahan, kunci join ke peta"
+level_lokasi,str,100.0,4,"kecamatan, kelurahan, tidak_ada",Lokasi terdalam yang ditemukan: kelurahan/kecamatan/kota/tidak_ada
+sumber_lokasi,str,63.4,3,"gazetteer, kawasan, nama_kota","Cara lokasi ditemukan: gazetteer, kawasan, nama_kota"
+ambigu_kelurahan,bool,100.0,2,"False, True",True jika kecamatan pasti tapi kelurahan hanya tebakan
+lokasi_ambigu,bool,100.0,2,"False, True",True jika tweet menyebut lebih dari satu kecamatan/kota
+nama_jalan,str,41.1,268,"(teks, tidak ditampilkan)",Nama jalan yang disebut (regex)
+status_wilayah,str,100.0,2,"dki, jakarta_umum",dki (lokasi DKI ditemukan) atau jakarta_umum (hanya menyebut Jakarta)
+flag_luar_jakarta,bool,100.0,2,"False, True",True jika menyebut wilayah luar Jakarta
+urgensi_manual,str,22.8,3,"Rendah, Sedang, Tinggi",Label urgensi anotasi manual (Tinggi/Sedang/Rendah)
+urgensi_aturan,str,68.3,3,"Sedang, Tinggi, Rendah",Label urgensi dari aturan kata penanda
+urgensi,str,71.4,3,"Sedang, Tinggi, Rendah","Label akhir: manual jika ada, jika tidak dari aturan"
+sumber_label,str,71.4,2,"aturan, manual",manual / aturan / kosong (belum berlabel)
+favorite_count,int64,100.0,82,"2, 1, 6",Jumlah like
+retweet_count,int64,100.0,47,"0, 2, 1",Jumlah retweet
+reply_count,int64,100.0,40,"0, 3, 1",Jumlah balasan
+quote_count,int64,100.0,25,"0, 1, 2",Jumlah quote
+engagement,int64,100.0,95,"2, 3, 1",Total like + retweet + balasan + quote
+ada_gambar,bool,100.0,2,"True, False",True jika tweet memuat gambar

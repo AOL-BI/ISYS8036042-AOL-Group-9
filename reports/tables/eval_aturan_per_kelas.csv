@@ -1,0 +1,4 @@
+kelas,support,precision,recall,f1
+Tinggi,24,0.5,0.75,0.6
+Sedang,50,0.7,0.42,0.525
+Rendah,7,0.0,0.0,0.0

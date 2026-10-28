@@ -16,12 +16,15 @@ Alur:
 Cara pakai (dari root repo):
     python src/modeling/prediksi_final.py                       # model utama: Random Forest
     python src/modeling/prediksi_final.py --model "Gradient-Boosted Trees"
-Output:
+    python src/modeling/bandingkan_model.py                     # bandingkan 4 model sekaligus
+Output model utama (Random Forest):
     data/processed/final/keluhan_final.csv              per tweet: kategori & urgensi final + probabilitas (tidak di-commit)
     data/processed/final/kejadian_final.csv             per kejadian (kecamatan, mulai, jumlah tweet, urgensi)
     data/processed/final/agregat_kelurahan_final.csv    per kelurahan (deskriptif, tidak di-commit)
     reports/tables/ranking_kecamatan.csv                42 kecamatan + ranking (di-commit, tanpa teks)
     reports/tables/final_ringkasan.md                   angka untuk Bab 4
+Model lain menulis file yang sama dengan akhiran nama model (mis. ranking_kecamatan_gbt.csv),
+jadi hasil model utama TIDAK tertimpa.
 """
 import argparse
 import sys
@@ -41,6 +44,8 @@ MIN_KEJADIAN = 5
 JEDA_HARI = 7
 PER = 100_000
 RANK_URG = {"Tinggi": 3, "Sedang": 2, "Rendah": 1}
+MODEL_UTAMA = "Random Forest"
+AKHIRAN = {"Random Forest": "", "Gradient-Boosted Trees": "_gbt", "SVM (linear)": "_svm", "Naive Bayes": "_nb"}
 
 
 def tandai_kejadian(df):
@@ -75,10 +80,11 @@ def md(df, angka=2):
     return "\n".join(out)
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--model", default="Random Forest", choices=list(MODEL))
-    args = ap.parse_args()
+def jalankan(nama_model=MODEL_UTAMA, simpan=True, cetak=True):
+    """Jalankan seluruh alur untuk satu model. Mengembalikan dict berisi tabel hasil (untuk perbandingan).
+    simpan=False: tidak menulis file apa pun."""
+    akhiran = AKHIRAN[nama_model]
+    nama_file = lambda nama, ext: f"{nama}{akhiran}.{ext}"
 
     k = pd.read_csv(KELUHAN, dtype=str)
     gold = pd.read_csv(GOLD, dtype=str, keep_default_na=False)
@@ -97,7 +103,7 @@ def main():
     # ---------------------------------------------------- 1. relevansi
     lat_r = k.merge(pd.concat([baru, rev])[["id_str", "kategori"]], on="id_str")
     yr = np.where(lat_r["kategori"] == "keluhan", "keluhan", "bukan")
-    pred_r, proba_r = latih_dan_prediksi(args.model, lat_r, yr, k)
+    pred_r, proba_r = latih_dan_prediksi(nama_model, lat_r, yr, k)
     k["prob_keluhan"] = proba_r["keluhan"].round(3) if proba_r is not None else np.nan
     k["kategori_model"] = np.where(pred_r == "keluhan", "keluhan", "bukan_keluhan")
     k["kategori_final"] = k["kategori_model"]
@@ -110,7 +116,7 @@ def main():
     # ---------------------------------------------------- 2. urgensi
     lat_u = k.merge(baru[(baru["kategori"] == "keluhan") & (baru["urgensi"].isin(URG))][["id_str", "urgensi"]]
                     .rename(columns={"urgensi": "y"}), on="id_str")
-    pred_u, proba_u = latih_dan_prediksi(args.model, lat_u, lat_u["y"].values, k)
+    pred_u, proba_u = latih_dan_prediksi(nama_model, lat_u, lat_u["y"].values, k)
     k["urgensi_model"] = pred_u
     if proba_u is not None:
         for c in URG:
@@ -126,7 +132,9 @@ def main():
              "level_lokasi", "ambigu_kelurahan", "lokasi_ambigu", "status_wilayah", "kategori_final",
              "sumber_kategori", "prob_keluhan", "urgensi_final", "sumber_urgensi", "urgensi_aturan"] + \
             [c for c in k.columns if c.startswith("prob_") and c != "prob_keluhan"]
-    OUT.mkdir(parents=True, exist_ok=True)
+    if simpan:
+        OUT.mkdir(parents=True, exist_ok=True)
+        TAB.mkdir(parents=True, exist_ok=True)
 
     # ---------------------------------------------------- 3. agregasi
     batas = pd.read_csv(BATAS, dtype=str)
@@ -142,7 +150,9 @@ def main():
     kejadian = berlokasi.assign(_r=berlokasi["urgensi_final"].map(RANK_URG)).groupby("id_kejadian").agg(
         kecamatan=("kecamatan", "first"), mulai=("created_at", "min"), n_tweet=("id_str", "count"), _r=("_r", "max"))
     kejadian["urgensi"] = kejadian["_r"].map({v: k_ for k_, v in RANK_URG.items()})
-    kejadian.drop(columns="_r").to_csv(OUT / "kejadian_final.csv")
+    kejadian = kejadian.drop(columns="_r")
+    if simpan:
+        kejadian.to_csv(OUT / nama_file("kejadian_final", "csv"))
 
     hit = kejadian.pivot_table(index="kecamatan", columns="urgensi", values="n_tweet", aggfunc="count",
                                fill_value=0).reindex(columns=URG, fill_value=0)
@@ -161,8 +171,8 @@ def main():
     kec["ranking"] = kec["adm3_pcode"].map({p: i for i, p in enumerate(urut["adm3_pcode"], 1)}).astype("Int64")
     kec = kec.rename(columns={"adm3_pcode": "pcode_kecamatan", "adm3_name": "kecamatan", "adm2_name": "kota"})
     kec = kec.sort_values(["ranking", "n_kejadian"], ascending=[True, False], na_position="last")
-    TAB.mkdir(parents=True, exist_ok=True)
-    kec.to_csv(TAB / "ranking_kecamatan.csv", index=False)
+    if simpan:
+        kec.to_csv(TAB / nama_file("ranking_kecamatan", "csv"), index=False)
 
     kel_rel = rel[rel["adm4_pcode"].notna() & (rel["adm4_pcode"] != "")]
     hk = kel_rel.pivot_table(index="adm4_pcode", columns="urgensi_final", values="id_str", aggfunc="count",
@@ -172,13 +182,15 @@ def main():
     agk["n_keluhan"] = agk[[f"n_{c.lower()}" for c in URG]].sum(axis=1).astype(int)
     agk["kelurahan_tebakan"] = agk["adm4_pcode"].map(
         kel_rel.groupby("adm4_pcode")["ambigu_kelurahan"].apply(lambda s: int((s == "True").sum()))).fillna(0).astype(int)
-    agk.to_csv(OUT / "agregat_kelurahan_final.csv", index=False)
+    if simpan:
+        agk.to_csv(OUT / nama_file("agregat_kelurahan_final", "csv"), index=False)
 
-    k[kolom + ["id_kejadian"]].to_csv(OUT / "keluhan_final.csv", index=False)
+    if simpan:
+        k[kolom + ["id_kejadian"]].to_csv(OUT / nama_file("keluhan_final", "csv"), index=False)
 
     # ---------------------------------------------------- 4. ringkasan
     n = len(k)
-    L = [f"# Ringkasan Hasil Final (model: {args.model})", "",
+    L = [f"# Ringkasan Hasil Final (model: {nama_model})", "",
          "## Dari keluhan pipeline ke keluhan relevan", "",
          md(pd.DataFrame([
              ["Keluhan hasil pipeline", n],
@@ -205,8 +217,18 @@ def main():
                                   "n_rendah", "per100rb_tinggi", "per100rb_sedang", "per100rb_rendah"]]), "",
          "Kecamatan dengan data tidak cukup (jumlah kejadian): " + ", ".join(
              f"{r.kecamatan} ({r.n_kejadian})" for r in kec[~kec["data_cukup"]].itertuples()), ""]
-    (TAB / "final_ringkasan.md").write_text("\n".join(L), encoding="utf-8")
-    print("\n".join(L))
+    if simpan:
+        (TAB / nama_file("final_ringkasan", "md")).write_text("\n".join(L), encoding="utf-8")
+    if cetak:
+        print("\n".join(L))
+    return {"model": nama_model, "keluhan": k, "kejadian": kejadian, "kecamatan": kec}
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--model", default=MODEL_UTAMA, choices=list(MODEL))
+    args = ap.parse_args()
+    jalankan(args.model)
 
 
 if __name__ == "__main__":

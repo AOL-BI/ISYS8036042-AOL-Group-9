@@ -1,0 +1,43 @@
+kecamatan,kota,rank_RF,kejadian_RF,rank_SVM,kejadian_SVM,rank_GBT,kejadian_GBT,rank_NB,kejadian_NB
+Setia Budi,Kota Jakarta Selatan,1,16,2,17,1,14,3,15
+Matraman,Kota Jakarta Timur,2,7,1,7,2,8,1,8
+Kelapa Gading,Kota Jakarta Utara,3,13,3,15,4,13,4,15
+Pulo Gadung,Kota Jakarta Timur,4,8,6,8,5,8,5,8
+Kebayoran Lama,Kota Jakarta Selatan,5,8,4,8,6,8,6,8
+Grogol Petamburan,Kota Jakarta Barat,6,14,5,16,3,16,2,16
+Cilandak,Kota Jakarta Selatan,7,10,7,10,12,10,8,10
+Senen,Kota Jakarta Pusat,8,5,8,5,7,5,9,5
+Cilincing,Kota Jakarta Utara,9,9,9,10,9,9,10,10
+Jatinegara,Kota Jakarta Timur,10,6,10,6,10,6,11,6
+Tanah Abang,Kota Jakarta Pusat,11,5,11,5,11,5,7,5
+Cakung,Kota Jakarta Timur,12,8,12,8,8,8,12,8
+Kramat Jati,Kota Jakarta Timur,13,6,13,6,13,6,13,6
+Jagakarsa,Kota Jakarta Selatan,14,6,14,6,14,6,14,6
+Cengkareng,Kota Jakarta Barat,15,6,15,6,15,7,15,6
+Gambir,Kota Jakarta Pusat,16,9,16,10,16,10,16,9
+Pademangan,Kota Jakarta Utara,17,5,18,5,18,5,18,6
+Pasar Minggu,Kota Jakarta Selatan,,4,,4,,4,,4
+Pancoran,Kota Jakarta Selatan,,4,17,5,17,5,17,5
+Tebet,Kota Jakarta Selatan,,4,,4,,4,,4
+Pasar Rebo,Kota Jakarta Timur,,4,,4,,4,,4
+Duren Sawit,Kota Jakarta Timur,,4,,4,,4,,4
+Menteng,Kota Jakarta Pusat,,4,,4,,4,,4
+Kebayoran Baru,Kota Jakarta Selatan,,3,,3,,3,,3
+Palmerah,Kota Jakarta Barat,,3,,3,,3,,3
+Mampang Prapatan,Kota Jakarta Selatan,,2,,3,,2,,3
+Ciracas,Kota Jakarta Timur,,2,,2,,2,,2
+Makasar,Kota Jakarta Timur,,2,,2,,2,,2
+Kebon Jeruk,Kota Jakarta Barat,,2,,2,,2,,2
+Taman Sari,Kota Jakarta Barat,,2,,2,,2,,2
+Tanjung Priok,Kota Jakarta Utara,,2,,2,,2,,2
+Johar Baru,Kota Jakarta Pusat,,1,,1,,1,,1
+Kemayoran,Kota Jakarta Pusat,,1,,1,,1,,1
+Kembangan,Kota Jakarta Barat,,1,,1,,1,,1
+Tambora,Kota Jakarta Barat,,1,,1,,1,,1
+Penjaringan,Kota Jakarta Utara,,1,,3,,2,,2
+Pesanggrahan,Kota Jakarta Selatan,,0,,1,,1,,1
+Cipayung,Kota Jakarta Timur,,0,,0,,0,,0
+Cempaka Putih,Kota Jakarta Pusat,,0,,0,,0,,0
+Sawah Besar,Kota Jakarta Pusat,,0,,0,,1,,0
+Kali Deres,Kota Jakarta Barat,,0,,1,,0,,1
+Koja,Kota Jakarta Utara,,0,,0,,0,,0

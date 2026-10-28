@@ -1,0 +1,43 @@
+pcode_kecamatan,kecamatan,kota,penduduk_2025_est,n_tinggi,n_sedang,n_rendah,n_tweet,n_kejadian,per100rb_kejadian,per100rb_tinggi,per100rb_sedang,per100rb_rendah,data_cukup,ranking
+ID3171100,Setia Budi,Kota Jakarta Selatan,114468,4,11,1,32,16,13.98,3.49,9.61,0.87,True,1
+ID3172100,Matraman,Kota Jakarta Timur,190791,4,3,0,21,7,3.67,2.1,1.57,0.0,True,2
+ID3175050,Kelapa Gading,Kota Jakarta Utara,144316,2,7,4,21,13,9.01,1.39,4.85,2.77,True,3
+ID3172090,Pulo Gadung,Kota Jakarta Timur,304735,4,3,1,15,8,2.63,1.31,0.98,0.33,True,4
+ID3171050,Kebayoran Lama,Kota Jakarta Selatan,310634,4,4,0,8,8,2.58,1.29,1.29,0.0,True,5
+ID3174040,Grogol Petamburan,Kota Jakarta Barat,239493,3,10,1,16,14,5.85,1.25,4.18,0.42,True,6
+ID3171030,Cilandak,Kota Jakarta Selatan,211003,2,3,5,30,10,4.74,0.95,1.42,2.37,True,7
+ID3173030,Senen,Kota Jakarta Pusat,117227,1,3,1,8,5,4.27,0.85,2.56,0.85,True,8
+ID3175060,Cilincing,Kota Jakarta Utara,427313,3,4,2,11,9,2.11,0.7,0.94,0.47,True,9
+ID3172060,Jatinegara,Kota Jakarta Timur,325023,2,2,2,6,6,1.85,0.62,0.62,0.62,True,10
+ID3173010,Tanah Abang,Kota Jakarta Pusat,164121,1,3,1,6,5,3.05,0.61,1.83,0.61,True,11
+ID3172080,Cakung,Kota Jakarta Timur,533088,3,4,1,16,8,1.5,0.56,0.75,0.19,True,12
+ID3172050,Kramat Jati,Kota Jakarta Timur,303313,1,5,0,6,6,1.98,0.33,1.65,0.0,True,13
+ID3171010,Jagakarsa,Kota Jakarta Selatan,324665,1,3,2,37,6,1.85,0.31,0.92,0.62,True,14
+ID3174070,Cengkareng,Kota Jakarta Barat,548380,1,4,1,11,6,1.09,0.18,0.73,0.18,True,15
+ID3173080,Gambir,Kota Jakarta Pusat,92806,0,6,3,9,9,9.7,0.0,6.47,3.23,True,16
+ID3175020,Pademangan,Kota Jakarta Utara,170904,0,4,1,8,5,2.93,0.0,2.34,0.59,True,17
+ID3171020,Pasar Minggu,Kota Jakarta Selatan,309850,0,3,1,6,4,1.29,0.0,0.97,0.32,False,
+ID3171080,Pancoran,Kota Jakarta Selatan,164161,0,4,0,5,4,2.44,0.0,2.44,0.0,False,
+ID3171090,Tebet,Kota Jakarta Selatan,236350,2,2,0,4,4,1.69,0.85,0.85,0.0,False,
+ID3172010,Pasar Rebo,Kota Jakarta Timur,221304,1,2,1,4,4,1.81,0.45,0.9,0.45,False,
+ID3172070,Duren Sawit,Kota Jakarta Timur,426078,2,2,0,7,4,0.94,0.47,0.47,0.0,False,
+ID3173020,Menteng,Kota Jakarta Pusat,83865,0,3,1,5,4,4.77,0.0,3.58,1.19,False,
+ID3171060,Kebayoran Baru,Kota Jakarta Selatan,151544,0,3,0,5,3,1.98,0.0,1.98,0.0,False,
+ID3174030,Palmerah,Kota Jakarta Barat,230490,2,1,0,3,3,1.3,0.87,0.43,0.0,False,
+ID3171070,Mampang Prapatan,Kota Jakarta Selatan,153767,1,1,0,2,2,1.3,0.65,0.65,0.0,False,
+ID3172020,Ciracas,Kota Jakarta Timur,296232,1,0,1,4,2,0.68,0.34,0.0,0.34,False,
+ID3172040,Makasar,Kota Jakarta Timur,216655,0,2,0,2,2,0.92,0.0,0.92,0.0,False,
+ID3174020,Kebon Jeruk,Kota Jakarta Barat,349116,1,0,1,2,2,0.57,0.29,0.0,0.29,False,
+ID3174060,Taman Sari,Kota Jakarta Barat,133254,2,0,0,3,2,1.5,1.5,0.0,0.0,False,
+ID3175030,Tanjung Priok,Kota Jakarta Utara,418528,0,2,0,2,2,0.48,0.0,0.48,0.0,False,
+ID3173040,Johar Baru,Kota Jakarta Pusat,130534,0,1,0,2,1,0.77,0.0,0.77,0.0,False,
+ID3173060,Kemayoran,Kota Jakarta Pusat,235631,0,1,0,1,1,0.42,0.0,0.42,0.0,False,
+ID3174010,Kembangan,Kota Jakarta Barat,288362,0,1,0,3,1,0.35,0.0,0.35,0.0,False,
+ID3174050,Tambora,Kota Jakarta Barat,278343,0,1,0,1,1,0.36,0.0,0.36,0.0,False,
+ID3175010,Penjaringan,Kota Jakarta Utara,316157,0,1,0,3,1,0.32,0.0,0.32,0.0,False,
+ID3171040,Pesanggrahan,Kota Jakarta Selatan,242783,0,0,0,0,0,0.0,0.0,0.0,0.0,False,
+ID3172030,Cipayung,Kota Jakarta Timur,267839,0,0,0,0,0,0.0,0.0,0.0,0.0,False,
+ID3173050,Cempaka Putih,Kota Jakarta Pusat,90490,0,0,0,0,0,0.0,0.0,0.0,0.0,False,
+ID3173070,Sawah Besar,Kota Jakarta Pusat,123722,0,0,0,0,0,0.0,0.0,0.0,0.0,False,
+ID3174080,Kali Deres,Kota Jakarta Barat,419761,0,0,0,0,0,0.0,0.0,0.0,0.0,False,
+ID3175040,Koja,Kota Jakarta Utara,341791,0,0,0,0,0,0.0,0.0,0.0,0.0,False,

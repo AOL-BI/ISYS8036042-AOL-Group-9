@@ -19,7 +19,7 @@ Baris berlabel manusia memakai label manusia di semua model, jadi perbedaan hany
 |---|---|---|---|---|---|---|---|---|
 | RF | 408 | 166 | 188 | 48 | 109 | 31 | 17 | Setia Budi, Matraman, Kelapa Gading, Pulo Gadung, Kebayoran Lama |
 | SVM | 436 | 194 | 201 | 43 | 122 | 36 | 18 | Matraman, Setia Budi, Kelapa Gading, Kebayoran Lama, Grogol Petamburan |
-| GBT | 426 | 184 | 195 | 59 | 100 | 36 | 18 | Setia Budi, Matraman, Grogol Petamburan, Kelapa Gading, Pulo Gadung |
+| GBT | 426 | 184 | 195 | 58 | 101 | 36 | 18 | Setia Budi, Matraman, Grogol Petamburan, Kelapa Gading, Pulo Gadung |
 | NB | 427 | 185 | 199 | 48 | 114 | 37 | 18 | Matraman, Grogol Petamburan, Setia Budi, Kelapa Gading, Pulo Gadung |
 
 ## C. Kemiripan ranking kecamatan dengan model utama (RF)
@@ -29,7 +29,7 @@ Spearman dihitung pada kecamatan yang masuk ranking di kedua model (data cukup).
 | model | kecamatan dibandingkan | Spearman vs RF | irisan Top-5 | irisan Top-10 |
 |---|---|---|---|---|
 | SVM | 17 | 0.990 | 4/5 | 10/10 |
-| GBT | 17 | 0.924 | 4/5 | 9/10 |
+| GBT | 17 | 0.934 | 4/5 | 9/10 |
 | NB | 17 | 0.946 | 4/5 | 9/10 |
 
 Ranking lengkap berdampingan: `reports/tables/perbandingan_ranking.csv`.

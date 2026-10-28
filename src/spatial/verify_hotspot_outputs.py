@@ -1,4 +1,4 @@
-"""Check actual saved GIS outputs and rerun statistics to verify reproducibility."""
+"""Check actual saved GIS outputs and rerun statistics to verify reproducibility (run with QGIS Python)."""
 from pathlib import Path
 import hashlib
 import importlib.util
@@ -25,12 +25,16 @@ for filename, digest in report['source_sha256'].items():
 g = gpd.read_file(OUT / 'kecamatan_hotspot_results.gpkg')
 t = pd.read_csv(OUT / 'kecamatan_hotspot_statistics.csv')
 assert len(g) == len(t) == 42 and g.is_valid.all() and g.crs.to_epsg() == 32748
-assert t.priority_label.value_counts().to_dict() == {'Sedang':14, 'Rendah':14, 'Tinggi':14}
-assert set(t.priority_order) == set(range(1,43))
-ordered = t.sort_values('priority_order')
-scores = list(ordered[['per100rb_tinggi','per100rb_sedang','per100rb_rendah']].itertuples(index=False,name=None))
+n_ranked = int(t.data_cukup.sum())
+size = int(np.ceil(n_ranked / 3))
+assert np.allclose(t.priority_order, t.ranking, equal_nan=True)
+expected = [f'Priority {int(np.ceil(r/size))}' if ok else 'Insufficient data' for r, ok in zip(t.ranking, t.data_cukup)]
+assert t.priority_label.tolist() == expected
+assert (t.priority_label == 'Insufficient data').sum() == len(t) - n_ranked
+ordered = t.sort_values(['priority_order','pcode'])
+ranked = ordered[ordered.priority_order.notna()]
+scores = list(ranked[['per100rb_tinggi','per100rb_sedang','per100rb_rendah']].itertuples(index=False,name=None))
 assert scores == sorted(scores, reverse=True)
-assert ordered.priority_label.tolist() == ['Tinggi']*14 + ['Sedang']*14 + ['Rendah']*14
 source = pd.read_csv(ROOT/'reports/tables/ranking_kecamatan.csv').set_index('pcode_kecamatan').sort_index()
 result = t.set_index('pcode').sort_index()
 assert np.allclose(source.ranking,result.ranking,equal_nan=True)
@@ -46,11 +50,11 @@ for node in project.layerTreeRoot().findLayers():
     layer = node.layer()
     assert layer.isValid() and layer.featureCount() == 42
     if node.isVisible(): visible.append(layer.name())
-    if layer.name() == 'Prioritas perbaikan':
+    if layer.name() == 'Repair priority':
         assert layer.renderer().classAttribute() == 'priority_label'
-        assert {c.value() for c in layer.renderer().categories()} == {'Rendah','Sedang','Tinggi'}
-        assert layer.labeling().settings().fieldName == 'priority_label'
-assert visible == ['Prioritas perbaikan']
+        assert {c.value() for c in layer.renderer().categories()} == {'Priority 1','Priority 2','Priority 3','Insufficient data'}
+        assert layer.labeling().settings().isExpression
+assert visible == ['Repair priority']
 for layout in project.layoutManager().layouts():
     bars = [x for x in layout.items() if isinstance(x,QgsLayoutItemScaleBar)]
     assert len(bars)==1 and bars[0].units()==QgsUnitTypes.DistanceKilometers
@@ -68,7 +72,7 @@ w = gal.read(); gal.close()
 assert w.n == 42 and not w.islands and w.n_components == 1
 assert {k:sorted(v) for k,v in w.neighbors.items()} == {k:sorted(v) for k,v in report['selected_neighbors'].items()}
 
-spec = importlib.util.spec_from_file_location('hotspot',OUT/'kecamatan_hotspot_analysis.py')
+spec = importlib.util.spec_from_file_location('hotspot',ROOT/'src/spatial/kecamatan_hotspot_analysis.py')
 mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
 assert np.allclose(mod.bh([.01,.04,.03,.002]), [.02,.04,.04,.008])
 g2,r2 = mod.validate(); mod.assign_priority(g2,r2); mod.statistics(g2,r2)
@@ -79,4 +83,4 @@ for _,prefix in mod.VARIABLES:
     assert t[f'{prefix}_p_perm_2s'].between(0,1).all()
     assert np.array_equal(t[f'{prefix}_significant'],(t[f'{prefix}_q_bh']<=.05).astype(int))
     assert np.array_equal(t[f'{prefix}_class'],mod.classify(t[f'{prefix}_q_bh'],t[f'{prefix}_z_perm']))
-print('PASS: 42 areas, 14/14/14 labels, original ranks, four valid layers/layouts, priority-only default, PNG/GeoJSON/GAL outputs, unchanged sources, and deterministic 9999-permutation statistics.')
+print(f'PASS: 42 areas, {n_ranked} ranked in Priority 1/2/3 + {42-n_ranked} insufficient, original ranks, four valid layers/layouts, priority-only default, PNG/GeoJSON/GAL outputs, unchanged sources, and deterministic 9999-permutation statistics.')

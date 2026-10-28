@@ -1,11 +1,15 @@
-"""Reproducible Jakarta Gi* analysis and PyQGIS cartography. See docs/qgis_hotspot_workflow.md."""
+"""Reproducible Jakarta Gi* analysis and PyQGIS cartography. See docs/qgis_hotspot_workflow.md.
+
+Run with QGIS's own Python (needs qgis.core): src/spatial/run_hotspot_macos.sh or
+src/spatial/run_hotspot_windows.bat. Paper figures without QGIS: src/spatial/peta_hotspot.py.
+"""
 from pathlib import Path
 import csv
 import hashlib
 import json
 import sys
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve().parents[2]  # src/spatial/ -> repo root
 # Dependencies live in the repository, never in the QGIS application bundle.
 if (ROOT / '.venv/hotspot').exists():
     sys.path.insert(0, str(ROOT / '.venv/hotspot'))
@@ -31,6 +35,8 @@ from qgis.PyQt.QtGui import QFont
 OUT = ROOT / 'reports/gis/outputs'
 SEED, PERMUTATIONS, ALPHA = 20261028, 9999, .05
 VARIABLES = [('per100rb_kejadian', 'rate'), ('per100rb_tinggi', 'high'), ('n_kejadian', 'count')]
+PRIORITY_CLASSES = 3
+INSUFFICIENT = 'Insufficient data'
 
 
 def require(condition, message):
@@ -112,29 +118,28 @@ def validate():
 
 
 def assign_priority(g, report):
-    """User-approved relative priority across all 42 areas; source ranking is preserved."""
-    order = g.sort_values(
-        ['per100rb_tinggi', 'per100rb_sedang', 'per100rb_rendah', 'pcode'],
-        ascending=[False, False, False, True], kind='stable').index
-    require(len(g) == 42, 'Priority terciles require the validated 42-area study')
-    g['priority_order'] = 0
-    g['priority_label'] = ''
-    for start, label in [(0, 'Tinggi'), (14, 'Sedang'), (28, 'Rendah')]:
-        g.loc[order[start:start+14], 'priority_label'] = label
-    g.loc[order, 'priority_order'] = np.arange(1, 43)
+    """Priority 1/2/3 = consecutive groups of the source `ranking` (only data_cukup areas).
+
+    Same rule as src/spatial/peta_hotspot.py: group size ceil(n/3), so 17 ranked areas -> 1-6, 7-12, 13-17.
+    Areas with < 5 incidents keep ranking = null and get 'Insufficient data'. Labels are deliberately
+    not High/Medium/Low so they are not confused with the urgency classes.
+    """
+    ranked = g.data_cukup.astype(bool) & g.ranking.notna()
+    require(ranked.equals(g.data_cukup.astype(bool)), 'Every eligible area must have a ranking')
+    n = int(ranked.sum())
+    size = int(np.ceil(n / PRIORITY_CLASSES))
+    group = np.ceil(g.ranking / size)
+    g['priority_order'] = g.ranking
+    g['priority_label'] = [f'Priority {int(x)}' if ok else INSUFFICIENT for x, ok in zip(group, ranked)]
+    ranges = {f'Priority {k+1}': [k*size+1, min((k+1)*size, n)] for k in range(PRIORITY_CLASSES)}
     report['priority'] = {
-        'method': 'Relative thirds of all 42 areas, sorted descending by high, medium, low urgency rates; pcode ascending breaks exact ties',
-        'scope': 'Includes all 25 data_cukup=False areas by user instruction; source ranking and eligibility unchanged',
+        'method': 'Consecutive thirds (size ceil(n/3)) of the source ranking: high, then medium, then low '
+                  'urgency incident rate per 100,000 residents (src/modeling/prediksi_final.py)',
+        'scope': f'{n} areas with n_kejadian >= 5; the other {len(g)-n} are "{INSUFFICIENT}" and not ranked',
         'class_counts': g.priority_label.value_counts().to_dict(),
-        'ranges': {'Tinggi': [1,14], 'Sedang': [15,28], 'Rendah': [29,42]},
-        'boundary_ties': [],
+        'ranges': ranges,
     }
-    fields = ['per100rb_tinggi','per100rb_sedang','per100rb_rendah']
-    for cut in (14, 28):
-        left, right = g.loc[order[cut-1]], g.loc[order[cut]]
-        if all(left[x] == right[x] for x in fields):
-            report['priority']['boundary_ties'].append([left.pcode, right.pcode])
-    require(set(g.priority_label) == {'Rendah','Sedang','Tinggi'}, 'Priority classes incomplete')
+    require(set(g.priority_label) == set(ranges) | {INSUFFICIENT}, 'Priority classes incomplete')
     return g
 
 
@@ -250,31 +255,38 @@ def make_layout(project, layer, name, title, subtitle, note, filename, significa
 def cartography(report):
     project=QgsProject.instance(); project.clear(); project.setCrs(QgsCoordinateReferenceSystem('EPSG:32748'))
     gpkg=OUT/'kecamatan_hotspot_results.gpkg'
-    priority=QgsVectorLayer(str(gpkg)+'|layername=kecamatan_hotspot','Prioritas perbaikan','ogr')
+    priority=QgsVectorLayer(str(gpkg)+'|layername=kecamatan_hotspot','Repair priority','ogr')
     require(priority.isValid(),'Cannot read results GeoPackage')
+    ranges=report['priority']['ranges']
     renderer(priority, 'priority_label', [
-        ('Rendah','#fee0d2','Rendah'),
-        ('Sedang','#fc9272','Sedang'),
-        ('Tinggi','#b30000','Tinggi'),
+        ('Priority 1','#a8401a',f"Priority 1 (rank {ranges['Priority 1'][0]}–{ranges['Priority 1'][1]})"),
+        ('Priority 2','#e0703f',f"Priority 2 (rank {ranges['Priority 2'][0]}–{ranges['Priority 2'][1]})"),
+        ('Priority 3','#f5b48f',f"Priority 3 (rank {ranges['Priority 3'][0]}–{ranges['Priority 3'][1]})"),
+        (INSUFFICIENT,'#e4e3df','Insufficient data (<5 incidents)'),
     ])
     project.addMapLayer(priority)
-    pal=QgsPalLayerSettings(); pal.fieldName='priority_label'
-    fmt=QgsTextFormat(); fmt.setFont(QFont('Arial',7)); fmt.setSize(7); pal.setFormat(fmt)
+    # Label ranked areas with their rank number; unranked areas stay unlabeled.
+    pal=QgsPalLayerSettings(); pal.isExpression=True
+    pal.fieldName='if("ranking" IS NULL, \'\', to_string(to_int("ranking")))'
+    fmt=QgsTextFormat(); fmt.setFont(QFont('Arial',8,QFont.Bold)); fmt.setSize(8); pal.setFormat(fmt)
     priority.setLabeling(QgsVectorLayerSimpleLabeling(pal)); priority.setLabelsEnabled(True)
-    make_layout(project,priority,'Prioritas perbaikan','Prioritas Perbaikan Infrastruktur — DKI Jakarta',
-        '42 kecamatan · tiga kelompok prioritas relatif: Rendah, Sedang, Tinggi',
-        'Urutan laju per 100.000 jiwa:\nurgensi tinggi, lalu sedang,\nlalu rendah.\n\nTinggi: urutan 1–14\nSedang: urutan 15–28\nRendah: urutan 29–42\n\nSemua wilayah diberi kelas,\ntermasuk yang datanya terbatas.\nIni bukan kelas signifikansi Gi*.',
+    n_ranked=sum(report['priority']['class_counts'].get(k,0) for k in ranges)
+    make_layout(project,priority,'Repair priority','Road-Damage Repair Priority — DKI Jakarta',
+        f'{n_ranked} kecamatan with ≥5 incidents · ranked by High → Medium → Low incident rate per 100,000',
+        'Numbers on the map are ranks.\n\nPriority classes are consecutive\nthirds of the ranking, not Gi*\n'
+        'significance classes.\n\nGray areas have fewer than\n5 incidents: too few to rank,\n'
+        'not evidence of no damage.',
         'kecamatan_priority_map.png')
     colors=[('Hotspot (q <= 0.01)','#99000d','Hotspot · q ≤ 0.01'),('Hotspot (q <= 0.05)','#ef3b2c','Hotspot · 0.01 < q ≤ 0.05'),('Not significant','#e5e7eb','Not significant · q > 0.05'),('Coldspot (q <= 0.05)','#4292c6','Coldspot · 0.01 < q ≤ 0.05'),('Coldspot (q <= 0.01)','#084594','Coldspot · q ≤ 0.01')]
     maps = [
-        ('count','Incident count sensitivity','Absolute incident counts · supplementary sensitivity','kecamatan_gistar_count_map.png'),
-        ('high','Gi* laju urgensi tinggi','High-urgency incidents per 100,000 residents','kecamatan_gistar_tinggi_map.png'),
-        ('rate','Gi* laju kejadian','All incidents per 100,000 residents','kecamatan_gistar_hotspot_map.png'),
+        ('count','Gi* incident count (sensitivity)','Absolute incident counts · supplementary sensitivity','kecamatan_gistar_count_map.png'),
+        ('high','Gi* high-urgency incident rate','High-urgency incidents per 100,000 residents','kecamatan_gistar_tinggi_map.png'),
+        ('rate','Gi* all-incident rate','All incidents per 100,000 residents','kecamatan_gistar_hotspot_map.png'),
     ]
     for prefix, name, subtitle, filename in maps:
         layer=QgsVectorLayer(str(gpkg)+'|layername=kecamatan_hotspot',name,'ogr')
         renderer(layer,f'{prefix}_class',colors); project.addMapLayer(layer)
-        make_layout(project,layer,name,'Statistically Significant Complaint Hotspots — DKI Jakarta',
+        make_layout(project,layer,name,'Getis-Ord Gi* Hotspots of Road-Damage Incidents — DKI Jakarta',
             subtitle+' · Getis-Ord Gi*',
             ('Queen order 1 + focal unit' if report['weights_method'].startswith('Queen') else 'Symmetric KNN k=4 + focal unit')+
             f'\nBinary weights; {PERMUTATIONS} permutations\nTwo-sided tests; seed {SEED}\nBH FDR within each variable\n\nColors use adjusted p (q) ≤ 0.05.\nDark colors use q ≤ 0.01.\nDirection uses permutation Z.\n\nGray areas lack evidence of\nclustering under this test; they\nmay still have high complaints.',
@@ -306,7 +318,7 @@ def main():
         g[columns].to_crs(4326).to_file(OUT/filename, driver='GeoJSON')
     g.drop(columns='geometry')[['pcode','kecamatan','kota','priority_label','priority_order','ranking',
         'data_cukup','n_kejadian','per100rb_tinggi','per100rb_sedang','per100rb_rendah']].sort_values(
-        'priority_order').to_csv(OUT/'kecamatan_priority_labels.csv',index=False)
+        ['priority_order','pcode']).to_csv(OUT/'kecamatan_priority_labels.csv',index=False)
     g.drop(columns='geometry').to_csv(OUT/'kecamatan_hotspot_statistics.csv',index=False)
     (OUT/'validation_and_analysis.json').write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n')
     cartography(report)

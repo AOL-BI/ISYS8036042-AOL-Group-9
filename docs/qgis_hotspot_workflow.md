@@ -1,8 +1,22 @@
-# QGIS: tiga kelas prioritas dan Getis-Ord Gi* DKI Jakarta
+# Hotspot Getis-Ord Gi* dan kelas prioritas kecamatan DKI Jakarta
 
-## Hasil dan pengaturan terbaru
+## Ringkasan cepat
 
-Permintaan terbaru menggunakan **seluruh 42 kecamatan** untuk label akhir prioritas **Rendah, Sedang, Tinggi**. Kolom `priority_label` berisi tepat tiga nilai tersebut, masing-masing 14 kecamatan. Ini kelas prioritas relatif, bukan kategori signifikansi statistik.
+| Mau apa | Perintah (dari root repo) | Butuh QGIS? |
+|---|---|---|
+| Peta + tabel untuk paper | `python src/spatial/peta_hotspot.py` | Tidak (pandas, numpy, matplotlib) |
+| Hitung ulang Gi* + proyek/peta QGIS (Windows) | `src\spatial\run_hotspot_windows.bat --install` sekali, lalu `src\spatial\run_hotspot_windows.bat` | Ya |
+| Hitung ulang Gi* + proyek/peta QGIS (macOS) | lihat bagian *Eksekusi ulang* | Ya |
+
+Hasil Gi* sudah tersimpan di `reports/gis/outputs/kecamatan_hotspot_statistics.csv`, jadi untuk paper cukup perintah pertama. Keluarannya:
+
+- `reports/figures/hs_01_prioritas_kecamatan.png`: peta kelas prioritas (17 kecamatan beranking + 25 abu-abu).
+- `reports/figures/hs_02_gistar_zscore.png`: peta z-score Gi* laju semua kejadian dan laju urgensi Tinggi.
+- `reports/tables/hotspot_ringkasan.md`, `reports/tables/hotspot_prioritas.csv`: tabel untuk Bab 4.
+
+Gi* menjawab *apakah keluhan mengelompok secara spasial*; kelas prioritas menjawab *kecamatan mana yang didahulukan*. Keduanya terpisah: kelas prioritas **bukan** hasil uji Gi*.
+
+## Hasil dan pengaturan
 
 Analisis Gi* mengikuti parameter pada lampiran: ID `pcode`, **Queen contiguity orde 1**, focal observation disertakan (Gi*, bukan Gi), **9999 permutasi**, FDR **0,05**, dan dua variabel utama `per100rb_kejadian` serta `per100rb_tinggi`. Analisis tambahan `n_kejadian` tetap tersedia sebagai sensitivitas terhadap jumlah absolut. Setiap variabel diuji dan dikoreksi tersendiri.
 
@@ -14,30 +28,30 @@ Eksekusi memakai Python bawaan QGIS 3.44.14, PyQGIS untuk proyek/layout, serta e
 | `per100rb_tinggi` | 4 | 0 | 0,0132 | 0,4095 |
 | `n_kejadian` (tambahan) | 2 | 0 | 0,0134 | 0,5628 |
 
-**Tidak ada hotspot atau coldspot signifikan setelah FDR** pada ketiga variabel. Peta prioritas tetap berwarna karena memakai pembagian relatif, bukan hasil uji Gi*. Seluruh poligon Gi* berwarna abu-abu sesuai hasil statistik.
+**Tidak ada hotspot atau coldspot signifikan setelah FDR** pada ketiga variabel. Peta prioritas tetap berwarna karena memakai ranking, bukan hasil uji Gi*. Pada peta Gi* QGIS seluruh poligon abu-abu (kelas signifikansi); peta paper `hs_02` menampilkan z-score kontinu dengan garis putus-putus untuk p ≤ 0,05 sebelum FDR (eksploratif).
 
 Sebelum koreksi, hasil eksploratif laju kejadian menandai Tebet, Tanah Abang, Menteng sebagai hotspot dan Pademangan sebagai coldspot. Laju urgensi tinggi menandai Kebayoran Baru, Tebet, Menteng sebagai hotspot dan Taman Sari sebagai coldspot. Jumlah absolut menandai Kebayoran Baru sebagai hotspot dan Pademangan sebagai coldspot. Temuan ini **tidak lolos FDR** dan tidak boleh disebut hotspot terkonfirmasi.
 
-## Aturan tiga kelas prioritas
+## Aturan kelas prioritas
 
-Urutkan semua kecamatan secara leksikografis:
+Kelas prioritas hanya diberikan pada kecamatan yang memang masuk ranking, yaitu yang punya **≥ 5 kejadian** (`data_cukup = 1`, 17 kecamatan). Urutannya memakai kolom `ranking` dari `src/modeling/prediksi_final.py`:
 
-1. `per100rb_tinggi` menurun.
-2. Jika sama, `per100rb_sedang` menurun.
-3. Jika masih sama, `per100rb_rendah` menurun.
-4. Jika ketiga laju sama, `pcode` menaik sebagai pemutus seri yang deterministik.
+1. laju kejadian urgensi Tinggi per 100.000 penduduk, menurun;
+2. jika sama, laju Sedang, menurun;
+3. jika masih sama, laju Rendah, menurun.
 
-| Label akhir (`priority_label`) | Urutan baru (`priority_order`) | Jumlah | Warna |
+Ranking lalu dibagi tiga kelompok berurutan berukuran `ceil(n/3)`:
+
+| `priority_label` | Ranking | Jumlah | Warna |
 |---|---|---:|---|
-| Tinggi | 1–14 | 14 | Merah tua |
-| Sedang | 15–28 | 14 | Merah muda |
-| Rendah | 29–42 | 14 | Merah sangat muda |
+| Priority 1 | 1–6 | 6 | Oranye tua |
+| Priority 2 | 7–12 | 6 | Oranye |
+| Priority 3 | 13–17 | 5 | Oranye muda |
+| Insufficient data | – | 25 | Abu-abu |
 
-Ini pembagian tiga kelompok berukuran sama berdasarkan **urutan**, bukan interval nilai sama, weighted score, atau aturan dari signifikansi Gi*. Pada data sekarang tidak ada seri nilai di batas antarkelompok. Dengan definisi relatif ini, 14 wilayah selalu masuk Tinggi walaupun seluruh tingkat keluhan rendah. Prioritas Rendah tidak berarti tidak membutuhkan perbaikan.
+`priority_order` sama dengan `ranking` (kosong untuk 25 kecamatan lain). Labelnya sengaja *Priority 1/2/3*, bukan Tinggi/Sedang/Rendah, supaya tidak tertukar dengan kelas **urgensi** keluhan. Kecamatan abu-abu tidak berarti jalannya baik: keluhannya terlalu sedikit untuk diurutkan dengan andal. Label poligon pada peta prioritas menampilkan nomor ranking. Proyek QGIS secara default mengaktifkan layer **Repair priority** saja agar tidak tertutup layer Gi*.
 
-Kolom asli `ranking` dan `data_cukup` **dipertahankan**. Script upstream `src/modeling/prediksi_final.py` hanya memberi ranking pada kecamatan dengan `n_kejadian >= 5`, sehingga 17 wilayah beranking dan 25 null. Atas pilihan pengguna, kelas baru mencakup 25 wilayah tersebut juga; `priority_order` 1–42 berbeda dari ranking asli 1–17. Metode pengurutan urgensi tetap sama. Kelas untuk wilayah berdatum sedikit harus ditafsirkan hati-hati.
-
-Label poligon dan legenda prioritas hanya menampilkan Rendah, Sedang, Tinggi. Proyek secara default mengaktifkan layer **Prioritas perbaikan** saja agar tidak tertutup layer Gi*. Layer statistik dan layout terpisah tetap tersedia.
+> Versi sebelumnya membagi **seluruh 42** kecamatan menjadi Tinggi/Sedang/Rendah (14/14/14). Itu diganti karena (a) 25 kecamatan dengan < 5 kejadian ikut diberi kelas padahal metode menyatakan datanya tidak cukup, dan (b) labelnya bentrok dengan kelas urgensi. Aturan di atas dipakai di `src/spatial/kecamatan_hotspot_analysis.py` (`assign_priority`) maupun `src/spatial/peta_hotspot.py`.
 
 ## Sumber, validasi, dan geometri
 
@@ -83,44 +97,65 @@ Kolom `*_z` menyimpan Z analitik. `*_z_perm` memakai mean dan deviasi simulasi k
 
 ## Eksekusi ulang dan pemeriksaan
 
-Dari root repository, gunakan Python milik QGIS, bukan Python sistem:
+Script ada di `src/spatial/`. Analisis Gi* dan proyek QGIS harus dijalankan dengan **Python milik QGIS** (butuh `qgis.core`), bukan Python sistem. Dependensi statistik (`esda`, `libpysal`, versi dikunci di `src/spatial/requirements-hotspot.txt`) dipasang ke `.venv/hotspot` di dalam repo, bukan ke instalasi QGIS. Folder `.venv/` tidak di-commit.
+
+**Windows** (QGIS standalone installer atau OSGeo4W), dari Command Prompt:
+
+```bat
+src\spatial\run_hotspot_windows.bat --install
+src\spatial\run_hotspot_windows.bat
+src\spatial\run_hotspot_windows.bat --verify
+```
+
+Launcher mencari `C:\Program Files\QGIS 3.*\bin\python-qgis.bat` (atau `python-qgis-ltr.bat`, atau `C:\OSGeo4W`). Jika QGIS ada di tempat lain, jalankan dulu `set "QGIS_ROOT=D:\path\ke\QGIS 3.xx"`. Jika muncul `ModuleNotFoundError` untuk paket selain esda/libpysal (mis. `geopandas`), pasang paket itu dengan `"%QGIS_ROOT%\bin\python-qgis.bat" -m pip install --target .venv\hotspot <paket>`. Launcher Windows belum dites di semua versi QGIS; analisis asli dijalankan di macOS.
+
+**macOS**:
 
 ```bash
 PYTHONHOME=/Applications/QGIS.app/Contents/Frameworks \
   /Applications/QGIS.app/Contents/MacOS/python3.12 -m pip install \
-  --target .venv/hotspot --no-deps -r reports/gis/requirements-hotspot.txt
-bash reports/gis/run_hotspot_macos.sh
-bash reports/gis/run_hotspot_macos.sh --verify
+  --target .venv/hotspot --no-deps -r src/spatial/requirements-hotspot.txt
+bash src/spatial/run_hotspot_macos.sh
+bash src/spatial/run_hotspot_macos.sh --verify
 ```
 
-QGIS yang terpasang menyediakan GeoPandas, NumPy, SciPy, pandas, Shapely, PyProj, scikit-learn, dan Numba. Versi aktual direkam dalam JSON; distribusi lain mungkin memerlukan dependensi tambahan. Launcher mengatur `PYTHONHOME`, QGIS `PYTHONPATH`, `PROJ_DATA`, `GDAL_DATA`, Qt offscreen dan cache Numba lokal. `QGIS_APP` dapat diset jika aplikasi ada di lokasi lain; nama executable perlu disesuaikan jika QGIS memakai versi Python berbeda.
+QGIS macOS menyediakan GeoPandas, NumPy, SciPy, pandas, Shapely, PyProj, scikit-learn, dan Numba. Versi aktual direkam dalam JSON. Launcher mengatur `PYTHONHOME`, QGIS `PYTHONPATH`, `PROJ_DATA`, `GDAL_DATA`, Qt offscreen dan cache Numba lokal. `QGIS_APP` dapat diset jika aplikasi ada di lokasi lain; nama executable perlu disesuaikan jika QGIS memakai versi Python berbeda.
 
-Alternatif di QGIS Python Console:
+**Alternatif: QGIS Python Console** (semua OS). Ganti path dengan lokasi repo di komputer masing-masing:
 
 ```python
 from pathlib import Path
-script = Path('/Users/aengelinaa/Documents/AOL-BIA/ISYS8036042-AOL-Group-9/reports/gis/outputs/kecamatan_hotspot_analysis.py')
+script = Path(r'D:\Project\ISYS8036042-AOL-Group-9\src\spatial\kecamatan_hotspot_analysis.py')
 namespace = {'__file__': str(script), '__name__': '__main__'}
 exec(compile(script.read_text(), str(script), 'exec'), namespace)
 ```
 
 Console akan membersihkan proyek in-memory; simpan pekerjaan lain dahulu. Launcher terminal memakai proses terpisah. Output digenerasi ulang, input tidak diubah. GeoPackage baru ditulis ke file sementara lalu diganti agar tidak mengedit database yang sedang dibaca desktop; buka ulang proyek di QGIS setelah regenerasi agar membaca data dan style terbaru.
 
-Buka `kecamatan_hotspot_project.qgz`; default canvas menampilkan prioritas. Melalui **Project → Layouts**, pilih **Prioritas perbaikan**, **Gi* laju kejadian**, **Gi* laju urgensi tinggi**, atau **Incident count sensitivity**. Layout mengunci daftar layer masing-masing sehingga tampilannya tidak bergantung pada layer canvas yang dicentang.
+Buka `reports/gis/outputs/kecamatan_hotspot_project.qgz`; default canvas menampilkan prioritas. Melalui **Project → Layouts**, pilih **Repair priority**, **Gi\* all-incident rate**, **Gi\* high-urgency incident rate**, atau **Gi\* incident count (sensitivity)**. Layout mengunci daftar layer masing-masing sehingga tampilannya tidak bergantung pada layer canvas yang dicentang.
 
 ## Keluaran
 
-Semua berlokasi di `reports/gis/outputs/`:
+Script (`src/spatial/`):
 
 | File | Isi |
 |---|---|
-| `kecamatan_hotspot_analysis.py` | Validasi, label prioritas, statistik, proyek dan ekspor |
+| `kecamatan_hotspot_analysis.py` | Validasi, label prioritas, statistik Gi*, proyek dan ekspor QGIS (Python QGIS) |
+| `verify_hotspot_outputs.py` | Pemeriksaan output + hitung ulang statistik (Python QGIS) |
+| `run_hotspot_windows.bat`, `run_hotspot_macos.sh` | Launcher Python QGIS |
+| `requirements-hotspot.txt` | Versi esda/libpysal yang dikunci |
+| `peta_hotspot.py` | Peta & tabel untuk paper dari CSV statistik (Python biasa, tanpa QGIS) |
+
+Hasil QGIS, semua di `reports/gis/outputs/`:
+
+| File | Isi |
+|---|---|
 | `kecamatan_hotspot_results.gpkg` | Layer `kecamatan_hotspot`, 42 poligon, atribut asal dan ketiga analisis |
 | `kecamatan_hotspot_statistics.csv` | Atribut, label akhir, Gi*, Z, p, q, flag dan kelas statistik |
-| `kecamatan_priority_labels.csv` | Label final dan urutan seluruh kecamatan, ranking serta eligibility asli |
-| `kecamatan_hotspot_project.qgz` | Empat layer, empat layout, path GeoPackage relatif; default hanya prioritas aktif |
-| `kecamatan_priority_map.png` | Tiga kelas prioritas: Rendah, Sedang, Tinggi |
-| `kecamatan_gistar_hotspot_map.png` | Gi* laju kejadian |
+| `kecamatan_priority_labels.csv` | Kelas prioritas, ranking dan eligibility seluruh kecamatan |
+| `kecamatan_hotspot_project.qgz` | Satu-satunya file proyek QGIS: empat layer, empat layout, path GeoPackage relatif; default hanya prioritas aktif |
+| `kecamatan_priority_map.png` | Priority 1/2/3 + Insufficient data |
+| `kecamatan_gistar_hotspot_map.png` | Gi* laju semua kejadian |
 | `kecamatan_gistar_tinggi_map.png` | Gi* laju urgensi tinggi |
 | `kecamatan_gistar_count_map.png` | Gi* jumlah kejadian, sensitivitas tambahan |
 | `hasil_gistar_kejadian.geojson` | ID, prioritas dan statistik laju kejadian, EPSG:4326 |

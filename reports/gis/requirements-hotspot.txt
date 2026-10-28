@@ -1,0 +1,3 @@
+# Install into .venv/hotspot using QGIS's Python; other dependencies ship with QGIS.
+esda==2.10.0
+libpysal==4.15.1

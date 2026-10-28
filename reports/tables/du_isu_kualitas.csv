@@ -1,0 +1,12 @@
+aspek,indikator,nilai
+Lokasi,Keluhan tanpa lokasi sama sekali,295
+Lokasi,Keluhan tanpa kelurahan pasti (tanpa kode kelurahan atau kelurahan tebakan),645
+Lokasi,Kelurahan dengan 0 keluhan,185
+Lokasi,Kecamatan dengan 0 keluhan,2
+Label,Keluhan belum berlabel,231
+Label,Label manual,184
+Label,Kelas Rendah (semua sumber label),45
+Label,Kesesuaian aturan vs manual (%),100.0
+Sumber,Keluhan dari media/akun resmi,448
+Sumber,Keluhan berpola posting petugas (kemungkinan laporan perbaikan),92
+Waktu,Tahun dengan keluhan paling sedikit,2024

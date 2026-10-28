@@ -1,0 +1,11 @@
+tahap,jumlah,sisa_%
+Data mentah gabungan,3935,100.0
+Setelah hapus duplikat ID,3372,85.7
+Setelah buang retweet,3369,85.6
+Setelah buang bahasa non-Indonesia,3341,84.9
+Setelah buang teks kembar,2958,75.2
+Tahun 2019 ke atas,2914,74.1
+Wilayah DKI Jakarta,2211,56.2
+Subjek kerusakan = jalan,1698,43.2
+Tanpa trotoar/JPO/flyover dan jalan tol,1528,38.8
+Keluhan (tanpa laporan perbaikan),807,20.5

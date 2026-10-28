@@ -1,0 +1,4 @@
+aspek,n,sepakat,sepakat_%,cohen_kappa,tafsir,weighted_kappa_linear
+Kategori (4 kelas),154,107,69.5,0.528,sedang,
+"Urgensi (3 kelas, baris yang sama-sama keluhan)",64,42,65.6,0.378,lemah,0.364
+Kategori + urgensi (gabungan),154,85,55.2,0.442,sedang,

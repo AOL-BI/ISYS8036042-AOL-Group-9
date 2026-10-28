@@ -16,3 +16,7 @@ geopandas
 Sastrawi
 
 # Scraping pakai tweet-harvest (Node.js, dijalankan lewat npx), bukan library Python
+
+# Modeling (src/modeling/eksperimen_model.py)
+scikit-learn
+scipy

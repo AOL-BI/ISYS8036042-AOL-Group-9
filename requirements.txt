@@ -11,6 +11,10 @@ seaborn
 
 # Data spasial (GeoJSON batas kelurahan, issue #7)
 geopandas
+# Getis-Ord Gi* (src/spatial/kecamatan_hotspot_analysis.py, dijalankan dengan Python QGIS;
+# versi persis dikunci di src/spatial/requirements-hotspot.txt)
+esda
+libpysal
 
 # Preprocessing teks (stopword + stemming Bahasa Indonesia)
 Sastrawi

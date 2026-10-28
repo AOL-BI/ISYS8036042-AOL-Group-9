@@ -1,0 +1,4 @@
+rate_raw_class,Coldspot,Hotspot,Not significant
+Coldspot,1,0,0
+Hotspot,0,0,3
+Not significant,0,1,37

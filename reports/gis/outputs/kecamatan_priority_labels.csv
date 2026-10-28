@@ -1,0 +1,43 @@
+pcode,kecamatan,kota,priority_label,priority_order,ranking,data_cukup,n_kejadian,per100rb_tinggi,per100rb_sedang,per100rb_rendah
+ID3171100,Setia Budi,Jakarta Selatan,Tinggi,1,1.0,1,16,3.49,9.61,0.87
+ID3172100,Matraman,Jakarta Timur,Tinggi,2,2.0,1,7,2.1,1.57,0.0
+ID3174060,Taman Sari,Jakarta Barat,Tinggi,3,,0,2,1.5,0.0,0.0
+ID3175050,Kelapa Gading,Jakarta Utara,Tinggi,4,3.0,1,13,1.39,4.85,2.77
+ID3172090,Pulo Gadung,Jakarta Timur,Tinggi,5,4.0,1,8,1.31,0.98,0.33
+ID3171050,Kebayoran Lama,Jakarta Selatan,Tinggi,6,5.0,1,8,1.29,1.29,0.0
+ID3174040,Grogol Petamburan,Jakarta Barat,Tinggi,7,6.0,1,14,1.25,4.18,0.42
+ID3171030,Cilandak,Jakarta Selatan,Tinggi,8,7.0,1,10,0.95,1.42,2.37
+ID3174030,Palmerah,Jakarta Barat,Tinggi,9,,0,3,0.87,0.43,0.0
+ID3173030,Senen,Jakarta Pusat,Tinggi,10,8.0,1,5,0.85,2.56,0.85
+ID3171090,Tebet,Jakarta Selatan,Tinggi,11,,0,4,0.85,0.85,0.0
+ID3175060,Cilincing,Jakarta Utara,Tinggi,12,9.0,1,9,0.7,0.94,0.47
+ID3171070,Mampang Prapatan,Jakarta Selatan,Tinggi,13,,0,2,0.65,0.65,0.0
+ID3172060,Jatinegara,Jakarta Timur,Tinggi,14,10.0,1,6,0.62,0.62,0.62
+ID3173010,Tanah Abang,Jakarta Pusat,Sedang,15,11.0,1,5,0.61,1.83,0.61
+ID3172080,Cakung,Jakarta Timur,Sedang,16,12.0,1,8,0.56,0.75,0.19
+ID3172070,Duren Sawit,Jakarta Timur,Sedang,17,,0,4,0.47,0.47,0.0
+ID3172010,Pasar Rebo,Jakarta Timur,Sedang,18,,0,4,0.45,0.9,0.45
+ID3172020,Ciracas,Jakarta Timur,Sedang,19,,0,2,0.34,0.0,0.34
+ID3172050,Kramat Jati,Jakarta Timur,Sedang,20,13.0,1,6,0.33,1.65,0.0
+ID3171010,Jagakarsa,Jakarta Selatan,Sedang,21,14.0,1,6,0.31,0.92,0.62
+ID3174020,Kebon Jeruk,Jakarta Barat,Sedang,22,,0,2,0.29,0.0,0.29
+ID3174070,Cengkareng,Jakarta Barat,Sedang,23,15.0,1,6,0.18,0.73,0.18
+ID3173080,Gambir,Jakarta Pusat,Sedang,24,16.0,1,9,0.0,6.47,3.23
+ID3173020,Menteng,Jakarta Pusat,Sedang,25,,0,4,0.0,3.58,1.19
+ID3171080,Pancoran,Jakarta Selatan,Sedang,26,,0,4,0.0,2.44,0.0
+ID3175020,Pademangan,Jakarta Utara,Sedang,27,17.0,1,5,0.0,2.34,0.59
+ID3171060,Kebayoran Baru,Jakarta Selatan,Sedang,28,,0,3,0.0,1.98,0.0
+ID3171020,Pasar Minggu,Jakarta Selatan,Rendah,29,,0,4,0.0,0.97,0.32
+ID3172040,Makasar,Jakarta Timur,Rendah,30,,0,2,0.0,0.92,0.0
+ID3173040,Johar Baru,Jakarta Pusat,Rendah,31,,0,1,0.0,0.77,0.0
+ID3175030,Tanjung Priok,Jakarta Utara,Rendah,32,,0,2,0.0,0.48,0.0
+ID3173060,Kemayoran,Jakarta Pusat,Rendah,33,,0,1,0.0,0.42,0.0
+ID3174050,Tambora,Jakarta Barat,Rendah,34,,0,1,0.0,0.36,0.0
+ID3174010,Kembangan,Jakarta Barat,Rendah,35,,0,1,0.0,0.35,0.0
+ID3175010,Penjaringan,Jakarta Utara,Rendah,36,,0,1,0.0,0.32,0.0
+ID3171040,Pesanggrahan,Jakarta Selatan,Rendah,37,,0,0,0.0,0.0,0.0
+ID3172030,Cipayung,Jakarta Timur,Rendah,38,,0,0,0.0,0.0,0.0
+ID3173050,Cempaka Putih,Jakarta Pusat,Rendah,39,,0,0,0.0,0.0,0.0
+ID3173070,Sawah Besar,Jakarta Pusat,Rendah,40,,0,0,0.0,0.0,0.0
+ID3174080,Kali Deres,Jakarta Barat,Rendah,41,,0,0,0.0,0.0,0.0
+ID3175040,Koja,Jakarta Utara,Rendah,42,,0,0,0.0,0.0,0.0

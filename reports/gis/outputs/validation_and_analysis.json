@@ -1,0 +1,848 @@
+{
+  "source_sha256": {
+    "reports/gis/kecamatan_hotspot_input.geojson": "3b651abb41ce0c7fe92e8cab3fde153f4a08ae869819d1dc839433559b1daa3c",
+    "reports/tables/ranking_kecamatan.csv": "b3afa9b6fbb032e0b92c77e6216054cb5349e1a813dbc76ff0def0855c6e15be",
+    "data/external/batas-wilayah/jakarta_adm3.geojson": "c23a7849fd3944de38eb02ad6c95e6cb86761ed79ef55a822bd486b6cdfa6d99"
+  },
+  "geojson_schema": {
+    "pcode": "str",
+    "kecamatan": "str",
+    "kota": "str",
+    "penduduk_2025_est": "int32",
+    "n_tweet": "int32",
+    "n_kejadian": "int32",
+    "n_tinggi": "int32",
+    "n_sedang": "int32",
+    "n_rendah": "int32",
+    "per100rb_kejadian": "float64",
+    "per100rb_tinggi": "float64",
+    "per100rb_sedang": "float64",
+    "per100rb_rendah": "float64",
+    "data_cukup": "int32",
+    "ranking": "float64",
+    "geometry": "geometry"
+  },
+  "csv_schema": {
+    "pcode_kecamatan": "str",
+    "kecamatan": "str",
+    "kota": "str",
+    "penduduk_2025_est": "int64",
+    "n_tinggi": "int64",
+    "n_sedang": "int64",
+    "n_rendah": "int64",
+    "n_tweet": "int64",
+    "n_kejadian": "int64",
+    "per100rb_kejadian": "float64",
+    "per100rb_tinggi": "float64",
+    "per100rb_sedang": "float64",
+    "per100rb_rendah": "float64",
+    "data_cukup": "bool",
+    "ranking": "float64"
+  },
+  "source_crs": "EPSG:4326",
+  "output_crs": "EPSG:32748",
+  "features": 42,
+  "numeric_mismatches": 0,
+  "join_required": false,
+  "city_difference": "CSV prefixes city names with Kota; IDs and remaining names match",
+  "missing_values": {
+    "pcode": 0,
+    "kecamatan": 0,
+    "kota": 0,
+    "penduduk_2025_est": 0,
+    "n_tweet": 0,
+    "n_kejadian": 0,
+    "n_tinggi": 0,
+    "n_sedang": 0,
+    "n_rendah": 0,
+    "per100rb_kejadian": 0,
+    "per100rb_tinggi": 0,
+    "per100rb_sedang": 0,
+    "per100rb_rendah": 0,
+    "data_cukup": 0,
+    "ranking": 25,
+    "geometry": 0
+  },
+  "geometry_repairs": [
+    {
+      "pcode": "ID3171030",
+      "kecamatan": "Cilandak",
+      "reason": "Self-intersection[106.80893 -6.31452]",
+      "area_change_m2": 4.470348358154297e-08
+    },
+    {
+      "pcode": "ID3171080",
+      "kecamatan": "Pancoran",
+      "reason": "Ring Self-intersection[106.843454 -6.243397]",
+      "area_change_m2": -3.725290298461914e-09
+    },
+    {
+      "pcode": "ID3171090",
+      "kecamatan": "Tebet",
+      "reason": "Self-intersection[106.843455 -6.243395]",
+      "area_change_m2": 0.0
+    }
+  ],
+  "boundary_reference_match": true,
+  "eligible_for_ranking": 17,
+  "analysis_scope": "All 42 kecamatan, including low/zero counts; data_cukup governs ranking only",
+  "versions": {
+    "qgis": "3.44.14-Solothurn",
+    "numpy": "2.5.2",
+    "geopandas": "1.1.4",
+    "shapely": "2.1.2",
+    "esda": "2.10.0",
+    "libpysal": "4.15.1"
+  },
+  "priority": {
+    "method": "Relative thirds of all 42 areas, sorted descending by high, medium, low urgency rates; pcode ascending breaks exact ties",
+    "scope": "Includes all 25 data_cukup=False areas by user instruction; source ranking and eligibility unchanged",
+    "class_counts": {
+      "Sedang": 14,
+      "Rendah": 14,
+      "Tinggi": 14
+    },
+    "ranges": {
+      "Tinggi": [
+        1,
+        14
+      ],
+      "Sedang": [
+        15,
+        28
+      ],
+      "Rendah": [
+        29,
+        42
+      ]
+    },
+    "boundary_ties": []
+  },
+  "queen": {
+    "components": 1,
+    "islands": [],
+    "neighbors": {
+      "ID3171010": [
+        "ID3172010",
+        "ID3171030",
+        "ID3171020"
+      ],
+      "ID3171020": [
+        "ID3171010",
+        "ID3171070",
+        "ID3171030",
+        "ID3172010",
+        "ID3172050",
+        "ID3171080"
+      ],
+      "ID3171030": [
+        "ID3171010",
+        "ID3171070",
+        "ID3171050",
+        "ID3171020",
+        "ID3171060"
+      ],
+      "ID3171040": [
+        "ID3174010",
+        "ID3171050",
+        "ID3174020"
+      ],
+      "ID3171050": [
+        "ID3174020",
+        "ID3171040",
+        "ID3174030",
+        "ID3173010",
+        "ID3171030",
+        "ID3171060"
+      ],
+      "ID3171060": [
+        "ID3171070",
+        "ID3171050",
+        "ID3173010",
+        "ID3171030",
+        "ID3171100"
+      ],
+      "ID3171070": [
+        "ID3171030",
+        "ID3171080",
+        "ID3171100",
+        "ID3171020",
+        "ID3171060"
+      ],
+      "ID3171080": [
+        "ID3171020",
+        "ID3171090",
+        "ID3171070",
+        "ID3172060",
+        "ID3171100",
+        "ID3172050"
+      ],
+      "ID3171090": [
+        "ID3171080",
+        "ID3172100",
+        "ID3173020",
+        "ID3172060",
+        "ID3171100"
+      ],
+      "ID3171100": [
+        "ID3171080",
+        "ID3171090",
+        "ID3171070",
+        "ID3171060",
+        "ID3173010",
+        "ID3173020"
+      ],
+      "ID3172010": [
+        "ID3172050",
+        "ID3172020",
+        "ID3171010",
+        "ID3171020"
+      ],
+      "ID3172020": [
+        "ID3172010",
+        "ID3172050",
+        "ID3172030"
+      ],
+      "ID3172030": [
+        "ID3172020",
+        "ID3172040",
+        "ID3172050"
+      ],
+      "ID3172040": [
+        "ID3172070",
+        "ID3172050",
+        "ID3172060",
+        "ID3172030"
+      ],
+      "ID3172050": [
+        "ID3172020",
+        "ID3172010",
+        "ID3172040",
+        "ID3172060",
+        "ID3171020",
+        "ID3171080",
+        "ID3172030"
+      ],
+      "ID3172060": [
+        "ID3171090",
+        "ID3172070",
+        "ID3172100",
+        "ID3172090",
+        "ID3172040",
+        "ID3172050",
+        "ID3171080"
+      ],
+      "ID3172070": [
+        "ID3172090",
+        "ID3172040",
+        "ID3172060",
+        "ID3172080"
+      ],
+      "ID3172080": [
+        "ID3175050",
+        "ID3172090",
+        "ID3172070",
+        "ID3175060"
+      ],
+      "ID3172090": [
+        "ID3175050",
+        "ID3172070",
+        "ID3172100",
+        "ID3172060",
+        "ID3173050",
+        "ID3172080"
+      ],
+      "ID3172100": [
+        "ID3171090",
+        "ID3173030",
+        "ID3172090",
+        "ID3172060",
+        "ID3173050",
+        "ID3173020"
+      ],
+      "ID3173010": [
+        "ID3173080",
+        "ID3171050",
+        "ID3174030",
+        "ID3171100",
+        "ID3173020",
+        "ID3171060"
+      ],
+      "ID3173020": [
+        "ID3171090",
+        "ID3172100",
+        "ID3173080",
+        "ID3173030",
+        "ID3173010",
+        "ID3171100"
+      ],
+      "ID3173030": [
+        "ID3173060",
+        "ID3172100",
+        "ID3173080",
+        "ID3173070",
+        "ID3173040",
+        "ID3173050",
+        "ID3173020"
+      ],
+      "ID3173040": [
+        "ID3173030",
+        "ID3173060",
+        "ID3173050"
+      ],
+      "ID3173050": [
+        "ID3175050",
+        "ID3173060",
+        "ID3172100",
+        "ID3173030",
+        "ID3172090",
+        "ID3173040"
+      ],
+      "ID3173060": [
+        "ID3175050",
+        "ID3175030",
+        "ID3173030",
+        "ID3175020",
+        "ID3173070",
+        "ID3173040",
+        "ID3173050"
+      ],
+      "ID3173070": [
+        "ID3173060",
+        "ID3173080",
+        "ID3174060",
+        "ID3173030",
+        "ID3175020"
+      ],
+      "ID3173080": [
+        "ID3174040",
+        "ID3174050",
+        "ID3173030",
+        "ID3173010",
+        "ID3173020",
+        "ID3174060",
+        "ID3173070",
+        "ID3174030"
+      ],
+      "ID3174010": [
+        "ID3174070",
+        "ID3174020",
+        "ID3171040"
+      ],
+      "ID3174020": [
+        "ID3174040",
+        "ID3174010",
+        "ID3174070",
+        "ID3171040",
+        "ID3171050",
+        "ID3174030"
+      ],
+      "ID3174030": [
+        "ID3174040",
+        "ID3174020",
+        "ID3173080",
+        "ID3171050",
+        "ID3173010"
+      ],
+      "ID3174040": [
+        "ID3174020",
+        "ID3174050",
+        "ID3173080",
+        "ID3174070",
+        "ID3175010",
+        "ID3174030"
+      ],
+      "ID3174050": [
+        "ID3174040",
+        "ID3175010",
+        "ID3173080",
+        "ID3174060",
+        "ID3175020"
+      ],
+      "ID3174060": [
+        "ID3175010",
+        "ID3174050",
+        "ID3173080",
+        "ID3175020",
+        "ID3173070"
+      ],
+      "ID3174070": [
+        "ID3174040",
+        "ID3174010",
+        "ID3174020",
+        "ID3175010",
+        "ID3174080"
+      ],
+      "ID3174080": [
+        "ID3174070",
+        "ID3175010"
+      ],
+      "ID3175010": [
+        "ID3174040",
+        "ID3174050",
+        "ID3174060",
+        "ID3174070",
+        "ID3174080",
+        "ID3175020"
+      ],
+      "ID3175020": [
+        "ID3173060",
+        "ID3174050",
+        "ID3175030",
+        "ID3175010",
+        "ID3173070",
+        "ID3174060"
+      ],
+      "ID3175030": [
+        "ID3175050",
+        "ID3175020",
+        "ID3173060",
+        "ID3175040"
+      ],
+      "ID3175040": [
+        "ID3175030",
+        "ID3175050",
+        "ID3175060"
+      ],
+      "ID3175050": [
+        "ID3175060",
+        "ID3173060",
+        "ID3175040",
+        "ID3175030",
+        "ID3172090",
+        "ID3173050",
+        "ID3172080"
+      ],
+      "ID3175060": [
+        "ID3175050",
+        "ID3175040",
+        "ID3172080"
+      ]
+    }
+  },
+  "weights_method": "Queen contiguity, binary weights",
+  "selected_neighbors": {
+    "ID3171010": [
+      "ID3172010",
+      "ID3171030",
+      "ID3171020"
+    ],
+    "ID3171020": [
+      "ID3171010",
+      "ID3171070",
+      "ID3171030",
+      "ID3172010",
+      "ID3172050",
+      "ID3171080"
+    ],
+    "ID3171030": [
+      "ID3171010",
+      "ID3171070",
+      "ID3171050",
+      "ID3171020",
+      "ID3171060"
+    ],
+    "ID3171040": [
+      "ID3174010",
+      "ID3171050",
+      "ID3174020"
+    ],
+    "ID3171050": [
+      "ID3174020",
+      "ID3171040",
+      "ID3174030",
+      "ID3173010",
+      "ID3171030",
+      "ID3171060"
+    ],
+    "ID3171060": [
+      "ID3171070",
+      "ID3171050",
+      "ID3173010",
+      "ID3171030",
+      "ID3171100"
+    ],
+    "ID3171070": [
+      "ID3171030",
+      "ID3171080",
+      "ID3171100",
+      "ID3171020",
+      "ID3171060"
+    ],
+    "ID3171080": [
+      "ID3171020",
+      "ID3171090",
+      "ID3171070",
+      "ID3172060",
+      "ID3171100",
+      "ID3172050"
+    ],
+    "ID3171090": [
+      "ID3171080",
+      "ID3172100",
+      "ID3173020",
+      "ID3172060",
+      "ID3171100"
+    ],
+    "ID3171100": [
+      "ID3171080",
+      "ID3171090",
+      "ID3171070",
+      "ID3171060",
+      "ID3173010",
+      "ID3173020"
+    ],
+    "ID3172010": [
+      "ID3172050",
+      "ID3172020",
+      "ID3171010",
+      "ID3171020"
+    ],
+    "ID3172020": [
+      "ID3172010",
+      "ID3172050",
+      "ID3172030"
+    ],
+    "ID3172030": [
+      "ID3172020",
+      "ID3172040",
+      "ID3172050"
+    ],
+    "ID3172040": [
+      "ID3172070",
+      "ID3172050",
+      "ID3172060",
+      "ID3172030"
+    ],
+    "ID3172050": [
+      "ID3172020",
+      "ID3172010",
+      "ID3172040",
+      "ID3172060",
+      "ID3171020",
+      "ID3171080",
+      "ID3172030"
+    ],
+    "ID3172060": [
+      "ID3171090",
+      "ID3172070",
+      "ID3172100",
+      "ID3172090",
+      "ID3172040",
+      "ID3172050",
+      "ID3171080"
+    ],
+    "ID3172070": [
+      "ID3172090",
+      "ID3172040",
+      "ID3172060",
+      "ID3172080"
+    ],
+    "ID3172080": [
+      "ID3175050",
+      "ID3172090",
+      "ID3172070",
+      "ID3175060"
+    ],
+    "ID3172090": [
+      "ID3175050",
+      "ID3172070",
+      "ID3172100",
+      "ID3172060",
+      "ID3173050",
+      "ID3172080"
+    ],
+    "ID3172100": [
+      "ID3171090",
+      "ID3173030",
+      "ID3172090",
+      "ID3172060",
+      "ID3173050",
+      "ID3173020"
+    ],
+    "ID3173010": [
+      "ID3173080",
+      "ID3171050",
+      "ID3174030",
+      "ID3171100",
+      "ID3173020",
+      "ID3171060"
+    ],
+    "ID3173020": [
+      "ID3171090",
+      "ID3172100",
+      "ID3173080",
+      "ID3173030",
+      "ID3173010",
+      "ID3171100"
+    ],
+    "ID3173030": [
+      "ID3173060",
+      "ID3172100",
+      "ID3173080",
+      "ID3173070",
+      "ID3173040",
+      "ID3173050",
+      "ID3173020"
+    ],
+    "ID3173040": [
+      "ID3173030",
+      "ID3173060",
+      "ID3173050"
+    ],
+    "ID3173050": [
+      "ID3175050",
+      "ID3173060",
+      "ID3172100",
+      "ID3173030",
+      "ID3172090",
+      "ID3173040"
+    ],
+    "ID3173060": [
+      "ID3175050",
+      "ID3175030",
+      "ID3173030",
+      "ID3175020",
+      "ID3173070",
+      "ID3173040",
+      "ID3173050"
+    ],
+    "ID3173070": [
+      "ID3173060",
+      "ID3173080",
+      "ID3174060",
+      "ID3173030",
+      "ID3175020"
+    ],
+    "ID3173080": [
+      "ID3174040",
+      "ID3174050",
+      "ID3173030",
+      "ID3173010",
+      "ID3173020",
+      "ID3174060",
+      "ID3173070",
+      "ID3174030"
+    ],
+    "ID3174010": [
+      "ID3174070",
+      "ID3174020",
+      "ID3171040"
+    ],
+    "ID3174020": [
+      "ID3174040",
+      "ID3174010",
+      "ID3174070",
+      "ID3171040",
+      "ID3171050",
+      "ID3174030"
+    ],
+    "ID3174030": [
+      "ID3174040",
+      "ID3174020",
+      "ID3173080",
+      "ID3171050",
+      "ID3173010"
+    ],
+    "ID3174040": [
+      "ID3174020",
+      "ID3174050",
+      "ID3173080",
+      "ID3174070",
+      "ID3175010",
+      "ID3174030"
+    ],
+    "ID3174050": [
+      "ID3174040",
+      "ID3175010",
+      "ID3173080",
+      "ID3174060",
+      "ID3175020"
+    ],
+    "ID3174060": [
+      "ID3175010",
+      "ID3174050",
+      "ID3173080",
+      "ID3175020",
+      "ID3173070"
+    ],
+    "ID3174070": [
+      "ID3174040",
+      "ID3174010",
+      "ID3174020",
+      "ID3175010",
+      "ID3174080"
+    ],
+    "ID3174080": [
+      "ID3174070",
+      "ID3175010"
+    ],
+    "ID3175010": [
+      "ID3174040",
+      "ID3174050",
+      "ID3174060",
+      "ID3174070",
+      "ID3174080",
+      "ID3175020"
+    ],
+    "ID3175020": [
+      "ID3173060",
+      "ID3174050",
+      "ID3175030",
+      "ID3175010",
+      "ID3173070",
+      "ID3174060"
+    ],
+    "ID3175030": [
+      "ID3175050",
+      "ID3175020",
+      "ID3173060",
+      "ID3175040"
+    ],
+    "ID3175040": [
+      "ID3175030",
+      "ID3175050",
+      "ID3175060"
+    ],
+    "ID3175050": [
+      "ID3175060",
+      "ID3173060",
+      "ID3175040",
+      "ID3175030",
+      "ID3172090",
+      "ID3173050",
+      "ID3172080"
+    ],
+    "ID3175060": [
+      "ID3175050",
+      "ID3175040",
+      "ID3172080"
+    ]
+  },
+  "variables": {
+    "per100rb_kejadian": {
+      "summary": {
+        "count": 42.0,
+        "mean": 2.301904761904762,
+        "std": 2.8652469676854087,
+        "min": 0.0,
+        "25%": 0.5025,
+        "50%": 1.5,
+        "75%": 2.6174999999999997,
+        "max": 13.98
+      },
+      "zero_count": 6,
+      "unique_values": 33,
+      "skewness": 2.362712329469171,
+      "raw_significant": 4,
+      "fdr_significant": 0,
+      "minimum_p": 0.0024999999441206455,
+      "minimum_q": 0.10499999765306711,
+      "raw_areas": [
+        {
+          "pcode": "ID3171090",
+          "kecamatan": "Tebet",
+          "rate_raw_class": "Hotspot"
+        },
+        {
+          "pcode": "ID3173010",
+          "kecamatan": "Tanah Abang",
+          "rate_raw_class": "Hotspot"
+        },
+        {
+          "pcode": "ID3173020",
+          "kecamatan": "Menteng",
+          "rate_raw_class": "Hotspot"
+        },
+        {
+          "pcode": "ID3175020",
+          "kecamatan": "Pademangan",
+          "rate_raw_class": "Coldspot"
+        }
+      ],
+      "fdr_areas": []
+    },
+    "per100rb_tinggi": {
+      "summary": {
+        "count": 42.0,
+        "mean": 0.5085714285714287,
+        "std": 0.7122502007244756,
+        "min": 0.0,
+        "25%": 0.0,
+        "50%": 0.3,
+        "75%": 0.8125,
+        "max": 3.49
+      },
+      "zero_count": 19,
+      "unique_values": 23,
+      "skewness": 2.1351858813815596,
+      "raw_significant": 4,
+      "fdr_significant": 0,
+      "minimum_p": 0.013199999928474426,
+      "minimum_q": 0.4095000084489584,
+      "raw_areas": [
+        {
+          "pcode": "ID3171060",
+          "kecamatan": "Kebayoran Baru",
+          "high_raw_class": "Hotspot"
+        },
+        {
+          "pcode": "ID3171090",
+          "kecamatan": "Tebet",
+          "high_raw_class": "Hotspot"
+        },
+        {
+          "pcode": "ID3173020",
+          "kecamatan": "Menteng",
+          "high_raw_class": "Hotspot"
+        },
+        {
+          "pcode": "ID3174060",
+          "kecamatan": "Taman Sari",
+          "high_raw_class": "Coldspot"
+        }
+      ],
+      "fdr_areas": []
+    },
+    "n_kejadian": {
+      "summary": {
+        "count": 42.0,
+        "mean": 4.476190476190476,
+        "std": 3.964710768142997,
+        "min": 0.0,
+        "25%": 1.25,
+        "50%": 4.0,
+        "75%": 6.0,
+        "max": 16.0
+      },
+      "zero_count": 6,
+      "unique_values": 14,
+      "skewness": 1.0626741850040993,
+      "raw_significant": 2,
+      "fdr_significant": 0,
+      "minimum_p": 0.013399999588727951,
+      "minimum_q": 0.5627999827265739,
+      "raw_areas": [
+        {
+          "pcode": "ID3171060",
+          "kecamatan": "Kebayoran Baru",
+          "count_raw_class": "Hotspot"
+        },
+        {
+          "pcode": "ID3175020",
+          "kecamatan": "Pademangan",
+          "count_raw_class": "Coldspot"
+        }
+      ],
+      "fdr_areas": []
+    }
+  },
+  "seed": 20261028,
+  "permutations": 9999,
+  "alpha": 0.05,
+  "significance": "Conditional two-sided permutation p, Benjamini-Hochberg FDR per variable; direction from z_perm",
+  "changed_raw_classifications": 4,
+  "changed_fdr_classifications": 0,
+  "rate_vs_high_changed_raw": 4,
+  "rate_vs_high_changed_fdr": 0
+}

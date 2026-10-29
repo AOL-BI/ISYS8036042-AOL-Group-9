@@ -21,6 +21,8 @@ Butuh: pandas, numpy, matplotlib (sudah ada di requirements.txt).
 Output:
     reports/figures/hs_01_prioritas_kecamatan.png
     reports/figures/hs_02_gistar_zscore.png
+    reports/figures/hs_01_prioritas_kecamatan_paper.png   (selebar 1 kolom paper, tanpa judul)
+    reports/figures/hs_02_gistar_zscore_paper.png         (selebar 1 kolom paper, tanpa judul)
     reports/tables/hotspot_prioritas.csv
     reports/tables/hotspot_ringkasan.md
 """
@@ -115,22 +117,24 @@ def gambar_poligon(ax, geom, df, warna, hatch=None, lw=0.6, edge=OUTLINE, ls="-"
                                  hatch=hatch(r) if hatch else None, linestyle=ls))
 
 
-def atur_peta(ax, geom):
+def atur_peta(ax, geom, skala=1.0, ornamen=True):
     xy = np.vstack([ring for rings in geom.values() for ring in rings])
     pad = 1.0
     ax.set_xlim(xy[:, 0].min() - pad, xy[:, 0].max() + pad)
     ax.set_ylim(xy[:, 1].min() - pad, xy[:, 1].max() + pad)
     ax.set_aspect("equal")
     ax.axis("off")
+    if not ornamen:
+        return
     # skala 5 km + panah utara
     x0, y0 = xy[:, 0].min(), xy[:, 1].min() - 0.2
-    ax.plot([x0, x0 + 5], [y0, y0], color=INK, lw=2, solid_capstyle="butt")
+    ax.plot([x0, x0 + 5], [y0, y0], color=INK, lw=2 * skala, solid_capstyle="butt")
     for t in (0, 5):
-        ax.plot([x0 + t, x0 + t], [y0 - 0.25, y0 + 0.25], color=INK, lw=1)
-    ax.text(x0 + 2.5, y0 + 0.45, "5 km", ha="center", va="bottom", fontsize=8, color=INK)
+        ax.plot([x0 + t, x0 + t], [y0 - 0.25, y0 + 0.25], color=INK, lw=skala)
+    ax.text(x0 + 2.5, y0 + 0.45, "5 km", ha="center", va="bottom", fontsize=8 * skala, color=INK)
     xn, yn = xy[:, 0].max() - 0.5, xy[:, 1].max() - 3.0
-    ax.annotate("N", xy=(xn, yn + 2.2), xytext=(xn, yn), ha="center", va="center", fontsize=10,
-                fontweight="bold", color=INK, arrowprops=dict(arrowstyle="-|>", color=INK, lw=1.2))
+    ax.annotate("N", xy=(xn, yn + 2.2), xytext=(xn, yn), ha="center", va="center", fontsize=10 * skala,
+                fontweight="bold", color=INK, arrowprops=dict(arrowstyle="-|>", color=INK, lw=1.2 * skala))
 
 
 def centroid(rings):
@@ -222,6 +226,56 @@ def peta_gistar(geom, df):
     return out
 
 
+# ------------------------------------------------- versi selebar 1 kolom paper IEEE (±3,4 inci)
+# Tanpa judul (judul ada di caption Word) dan huruf dibuat besar relatif ukuran cetak.
+def peta_prioritas_paper(geom, df, batas):
+    fig = plt.figure(figsize=(3.4, 3.3), dpi=300)
+    ax = fig.add_axes([0.0, 0.14, 1.0, 0.86])
+    plt.rcParams["hatch.linewidth"] = 0.4
+    gambar_poligon(ax, geom, df, lw=0.3,
+                   warna=lambda r: WARNA_PRIORITAS.get(r["priority_label"], WARNA_KOSONG),
+                   hatch=lambda r: None if r["priority_label"] in WARNA_PRIORITAS else "////")
+    for _, r in df[df["ranking"].notna()].iterrows():
+        cx, cy = centroid(geom[r["pcode"]])
+        ax.text(cx, cy, str(int(r["ranking"])), ha="center", va="center", fontsize=5.5, fontweight="bold",
+                color="#ffffff" if r["priority_label"] == "Priority 1" else INK)
+    atur_peta(ax, geom, skala=0.65)
+    n_ok = int(df["ranking"].notna().sum())
+    leg = [Patch(facecolor=WARNA_PRIORITAS[k], edgecolor="#bdbcb8", lw=0.4, label=f"{k} (rank {a}–{b})")
+           for k, (a, b) in batas.items()]
+    leg.append(Patch(facecolor=WARNA_KOSONG, edgecolor="#bdbcb8", lw=0.4, hatch="////",
+                     label=f"Insufficient data (<5 incidents, n = {42 - n_ok})"))
+    fig.legend(handles=leg, loc="lower center", bbox_to_anchor=(0.5, 0.0), ncol=2, frameon=False,
+               fontsize=6, handlelength=1.4, columnspacing=1.0, handletextpad=0.5)
+    out = FIG / "hs_01_prioritas_kecamatan_paper.png"
+    fig.savefig(out, facecolor="#ffffff")
+    plt.close(fig)
+    return out
+
+
+def peta_gistar_paper(geom, df):
+    vmax = math.ceil(max(df[f"{p}_z"].abs().max() for p, _ in GI_VARS) * 2) / 2
+    norm = TwoSlopeNorm(vmin=-vmax, vcenter=0, vmax=vmax)
+    fig = plt.figure(figsize=(3.4, 2.55), dpi=300)
+    axes = [fig.add_axes([0.0, 0.17, 0.495, 0.75]), fig.add_axes([0.505, 0.17, 0.495, 0.75])]
+    for i, (ax, (p, _)) in enumerate(zip(axes, GI_VARS)):
+        gambar_poligon(ax, geom, df, lw=0.25, warna=lambda r, p=p: CMAP_Z(norm(r[f"{p}_z"])))
+        raw = df[df[f"{p}_p_perm_2s"] <= ALPHA]
+        gambar_poligon(ax, geom, raw, warna=lambda r: "none", lw=0.8, edge=INK, ls=(0, (2, 1.2)))
+        atur_peta(ax, geom, skala=0.55, ornamen=(i == 0))
+        ax.set_title(["(a) All incidents", "(b) High-urgency incidents"][i],
+                     fontsize=6.3, color=INK, pad=2)
+    cax = fig.add_axes([0.2, 0.115, 0.6, 0.03])
+    cb = fig.colorbar(plt.cm.ScalarMappable(norm=norm, cmap=CMAP_Z), cax=cax, orientation="horizontal")
+    cb.set_label("Gi* z-score (dashed outline: p ≤ 0.05 before FDR)", fontsize=5.8, color=INK, labelpad=1.5)
+    cb.ax.tick_params(labelsize=5.5, colors=INK, length=2, width=0.4, pad=1)
+    cb.outline.set_visible(False)
+    out = FIG / "hs_02_gistar_zscore_paper.png"
+    fig.savefig(out, facecolor="#ffffff")
+    plt.close(fig)
+    return out
+
+
 # ----------------------------------------------------------------------------- tabel
 def md(df, nd=2):
     df = df.copy()
@@ -278,10 +332,12 @@ def main():
     geom, df, batas = gabung()
     f1 = peta_prioritas(geom, df, batas)
     f2 = peta_gistar(geom, df)
+    f3 = peta_prioritas_paper(geom, df, batas)
+    f4 = peta_gistar_paper(geom, df)
     ring = tabel(df, batas)
     print(ring.to_string(index=False))
     print("\nKelas:", df["priority_label"].value_counts().to_dict())
-    for f in (f1, f2, TAB / "hotspot_prioritas.csv", TAB / "hotspot_ringkasan.md"):
+    for f in (f1, f2, f3, f4, TAB / "hotspot_prioritas.csv", TAB / "hotspot_ringkasan.md"):
         print("[simpan]", f.relative_to(ROOT))
 
 
